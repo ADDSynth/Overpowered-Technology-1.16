@@ -1,18 +1,12 @@
 package addsynth.overpoweredmod.game.core;
 
-import addsynth.core.game.Compatability;
-import addsynth.core.gameplay.items.ScytheTool;
 import addsynth.core.items.ArmorMaterial;
 import addsynth.core.items.EquipmentType;
 import addsynth.core.items.Toolset;
 import addsynth.overpoweredmod.Debug;
-import addsynth.overpoweredmod.OverpoweredTechnology;
-import addsynth.overpoweredmod.assets.CreativeTabs;
 import addsynth.overpoweredmod.items.tools.*;
 import addsynth.overpoweredmod.items.UnidentifiedItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Rarity;
 
 public final class Tools {
 
@@ -28,20 +22,7 @@ public final class Tools {
     new OverpoweredHoe("celestial_hoe"),
     Init.celestial_gem
   );
-    
-  public static final ScytheTool overpowered_scythe =
-  new ScytheTool("celestial_scythe", OverpoweredTiers.CELESTIAL, OverpoweredTechnology.registry, new Item.Properties().tab(CreativeTabs.tools_creative_tab)){
-    @Override
-    public boolean isEnchantable(final ItemStack stack){
-      return false;
-    }
   
-    @Override
-    public Rarity getRarity(final ItemStack stack){
-      return Rarity.RARE;
-    }
-  };
-
   public static final Toolset void_toolset = new Toolset(
     new NullSword("void_sword"),
     new NullShovel("void_shovel"),

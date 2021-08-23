@@ -8,7 +8,6 @@ public final class Features {
   public static ForgeConfigSpec.BooleanValue caution_block;
   public static ForgeConfigSpec.BooleanValue music_box;
   public static ForgeConfigSpec.BooleanValue music_sheet;
-  public static ForgeConfigSpec.BooleanValue scythes;
   public static ForgeConfigSpec.BooleanValue team_manager;
 
   public static ForgeConfigSpec.BooleanValue bronze_trophy;
@@ -36,7 +35,6 @@ public final class Features {
     caution_block = builder.define("Caution Block", true);
     music_box     = builder.define("Music Box",     true);
     music_sheet   = builder.define("Music Sheet",   true);
-    scythes       = builder.define("Scythes",       true);
     team_manager  = builder.define("Team Manager",  true);
 
     builder.push("Trophies");

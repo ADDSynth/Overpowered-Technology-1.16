@@ -153,9 +153,6 @@ public final class Registers {
     
     if(Features.celestial_tools.get()){
       for(Item tool : Tools.overpowered_tools.tools){ game.register(tool); }
-      if(addsynth.core.config.Features.scythes.get()){
-        game.register(Tools.overpowered_scythe);
-      }
     }
     if(Features.void_tools.get()){
       for(Item tool : Tools.void_toolset.tools){ game.register(tool); }

@@ -68,13 +68,6 @@ public final class CoreRegister {
       if(Features.platinum_trophy.get()){ game.register(Trophy.PLATINUM.item_block); }
     }
     
-    if(Features.scythes.get()){
-      game.register(Core.wooden_scythe);
-      game.register(Core.stone_scythe);
-      game.register(Core.iron_scythe);
-      game.register(Core.gold_scythe);
-      game.register(Core.diamond_scythe);
-    }
     // game.register(ADDSynthCore.registry.getItemBlock(Core.test_block));
 
     ADDSynthCore.log.info("Done registering items.");
