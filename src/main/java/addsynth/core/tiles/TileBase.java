@@ -13,6 +13,7 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.common.util.Constants;
 
 /** YES! ALL of ADDSynth's TileEntities should override THIS class, because this
  *  simplifies updating the TileEntity, and has many common features!
@@ -82,8 +83,8 @@ public abstract class TileBase extends TileEntity {
   public void update_data(){
     if(level != null){
       setChanged();
-      final BlockState blockstate = level.getBlockState(worldPosition);
-      level.setBlockAndUpdate(worldPosition, blockstate);
+      final BlockState blockstate = level.getBlockState(worldPosition); // OPTIMIZE: Use TileEntity's blockstate field.
+      level.sendBlockUpdated(worldPosition, blockstate, blockstate, Constants.BlockFlags.DEFAULT);
     }
   }
 
