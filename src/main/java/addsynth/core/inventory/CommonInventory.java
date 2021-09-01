@@ -45,7 +45,8 @@ public class CommonInventory extends ItemStackHandler {
   @Override
   public final void setStackInSlot(final int slot, final @Nonnull ItemStack stack){
     if(is_valid_slot(slot)){
-      if(ItemStack.isSame(this.stacks.get(slot), stack) == false){
+      // TEST: ItemStack.matches(getStackInSlot(slot), stack), why do I even have this here? Must be back in the Minecraft 1.12 days, or as an optimization if you try to place an Empty Stack in an Empty slot.
+      if(ItemStack.matches(this.stacks.get(slot), stack) == false){
         this.stacks.set(slot, stack);
         onContentsChanged(slot);
       }
