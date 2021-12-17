@@ -105,7 +105,7 @@ public final class OreGenerator {
       final int min_depth = Math.min(min, max);
       final int max_depth = Math.max(min, max);
       final ReplaceBlockConfig replace_block_config = new ReplaceBlockConfig(Blocks.STONE.defaultBlockState(), material.ore.defaultBlockState());
-      builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.EMERALD_ORE.configured(replace_block_config).range(max_depth).count(tries));
+      builder.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.EMERALD_ORE.configured(replace_block_config).range(max_depth).squared().count(tries));
       /*
       final ConfiguredFeature   configured_feature = new ConfiguredFeature<>(Feature.EMERALD_ORE, new ReplaceBlockConfig(Blocks.STONE.defaultBlockState(), material.ore.defaultBlockState()));
       final ConfiguredPlacement configured_placement = new ConfiguredPlacement<>(Placement.COUNT_RANGE, new CountRangeConfig(tries, min_depth, min_depth, max_depth));
