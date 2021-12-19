@@ -6,10 +6,13 @@ NEW:
     automated using electric furnaces from other mods.
     - But using the Blast Furnace is still more efficient if you're not getting free energy.
 FIXED:
-  Fixed Fusion Chamber not dropping.
+  Fixed Fusion Chamber not dropping when mined.
   Fixed Ores that drop an item not being affected by Pickaxes with the Fortune effect.
   Fixed gem ores generating in a straight line at coordinates 0x0 in a chunk.
     - Error only occured in the Minecraft 1.16 version.
+  More recipe advancement fixes.
+
+
 
 v1.4 - July 26, 2021
 INFO:
