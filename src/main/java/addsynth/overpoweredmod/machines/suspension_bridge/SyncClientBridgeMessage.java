@@ -47,10 +47,15 @@ public final class SyncClientBridgeMessage {
     return new SyncClientBridgeMessage(positions, bridge_message, messages);
   }
 
-  public static final void handle(final SyncClientBridgeMessage message, final Supplier<NetworkEvent.Context> context){
-    context.get().enqueueWork(() -> {
-      @SuppressWarnings("resource") final Minecraft minecraft = Minecraft.getInstance();
-      @SuppressWarnings("null")     final World world = minecraft.player.level;
+  public static final void handle(final SyncClientBridgeMessage message, final Supplier<NetworkEvent.Context> context_supplier){
+    final NetworkEvent.Context context = context_supplier.get();
+    context.enqueueWork(() -> {
+      
+      @SuppressWarnings("resource")
+      final Minecraft minecraft = Minecraft.getInstance();
+      @SuppressWarnings("null")
+      final World world = minecraft.player.level;
+      
       TileSuspensionBridge tile;
       for(final BlockPos pos : message.positions){
         if(world.isAreaLoaded(pos, 0)){
@@ -61,7 +66,7 @@ public final class SyncClientBridgeMessage {
         }
       }
     });
-    context.get().setPacketHandled(true);
+    context.setPacketHandled(true);
   }
 
 }
