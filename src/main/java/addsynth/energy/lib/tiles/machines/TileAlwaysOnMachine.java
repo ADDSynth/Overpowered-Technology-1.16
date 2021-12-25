@@ -29,12 +29,12 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
 
   public TileAlwaysOnMachine(TileEntityType type, SlotData[] slots, int output_slots, MachineData data){
     super(type, MachineState.IDLE, data);
-    this.inventory = new MachineInventory(this, slots, output_slots);
+    this.inventory = new MachineInventory(slots, output_slots);
   }
 
   public TileAlwaysOnMachine(TileEntityType type, int input_slots, Item[] filter, int output_slots, MachineData data){
     super(type, MachineState.IDLE, data);
-    this.inventory = new MachineInventory(this, input_slots, filter, output_slots);
+    this.inventory = new MachineInventory(input_slots, filter, output_slots);
   }
 
   @Override
@@ -42,6 +42,9 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
     if(onServerSide()){
       try{
         machine_tick();
+        if(inventory.tick()){
+          changed = true;
+        }
         if(energy.tick()){
           changed = true;
         }
@@ -61,10 +64,10 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
     switch(state){
     case RUNNING:
       if(energy.isFull()){
-        perform_work();
+        inventory.output_result();
         inventory.clear_working_inventory();
         energy.setEmpty();
-        if(test_condition()){
+        if(inventory.can_work()){
           inventory.begin_work();
         }
         else{
@@ -75,7 +78,7 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
       break;
 
     case IDLE:
-      if(test_condition()){
+      if(inventory.can_work()){
         state = MachineState.RUNNING;
         inventory.begin_work();
         changed = true;
@@ -88,17 +91,8 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
     }
   }
 
-  // Error 2: Track how EnergyUtil transfers Energy from the Generator, it is NOT transferring 500 Energy per tick.
-
-  /** Refresh Job queue. */
-  private final void refresh(){
-  }
-
-  /** This function must test the input and output item slots. */
-  protected abstract boolean test_condition();
-
-  /** Finishes working on the center ItemStack and increments the output. */
-  protected abstract void perform_work();
+  // Even though this is meant to be somewhat of a library or API, there's currently no way
+  // to specify non-default behiavour for this type of machine. See TileStandardWorkMachine.
 
   @Override
   public void load(final BlockState blockstate, final CompoundNBT nbt){
@@ -118,7 +112,7 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
   public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction side){
     if(remove == false){
       if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
-        return InventoryUtil.getInventoryCapability(inventory.input_inventory, inventory.output_inventory, side);
+        return InventoryUtil.getInventoryCapability(inventory.getInputInventory(), inventory.getOutputInventory(), side);
       }
       return super.getCapability(capability, side);
     }
@@ -126,8 +120,7 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
   }
 
   @Override
-  public void onInventoryChanged(){
-    refresh();
+  public final void onInventoryChanged(){
     changed = true;
   }
 
@@ -146,16 +139,16 @@ public abstract class TileAlwaysOnMachine extends TileAbstractWorkMachine
 
   @Override
   public InputInventory getInputInventory(){
-    return inventory.input_inventory;
+    return inventory.getInputInventory();
   }
 
   @Override
   public OutputInventory getOutputInventory(){
-    return inventory.output_inventory;
+    return inventory.getOutputInventory();
   }
 
   public final CommonInventory getWorkingInventory(){
-    return inventory.working_inventory;
+    return inventory.getWorkingInventory();
   }
   
 }

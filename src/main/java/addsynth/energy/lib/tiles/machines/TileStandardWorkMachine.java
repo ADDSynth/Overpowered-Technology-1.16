@@ -33,13 +33,13 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
 
   public TileStandardWorkMachine(TileEntityType type, SlotData[] slots, int output_slots, MachineData data){
     super(type, MachineState.IDLE, data);
-    this.inventory = new MachineInventory(this, slots, output_slots);
+    this.inventory = new MachineInventory(slots, output_slots);
     this.idle_energy = data.get_idle_energy();
   }
 
   public TileStandardWorkMachine(TileEntityType type, int input_slots, Item[] filter, int output_slots, MachineData data){
     super(type, MachineState.IDLE, data);
-    this.inventory = new MachineInventory(this, input_slots, filter, output_slots);
+    this.inventory = new MachineInventory(input_slots, filter, output_slots);
     this.idle_energy = data.get_idle_energy();
   }
 
@@ -48,6 +48,9 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
     if(onServerSide()){
       try{
         machine_tick();
+        if(inventory.tick()){
+          changed = true;
+        }
         if(energy.tick()){
           changed = true;
         }
@@ -95,10 +98,9 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
         turn_off();
       }
       else{
-        if(test_condition()){
+        if(can_work()){
           state = MachineState.RUNNING;
-          inventory.begin_work();
-          onJobStart();
+          begin_work();
           changed = true;
         }
       }
@@ -113,9 +115,8 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
           turn_off();
         }
         else{
-          if(test_condition()){
-            inventory.begin_work();
-            onJobStart();
+          if(can_work()){
+            begin_work();
           }
           else{
             state = MachineState.IDLE;
@@ -133,17 +134,31 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
     }
   }
 
-  /** Refresh Job queue. */
-  private final void refresh(){
+  /** Called multiple times a tick. Returns whether the machine can perform work.
+   *  Override to specify non-default behaviour.
+   */
+  protected boolean can_work(){
+    return inventory.can_work();
   }
 
-  /** This function must test the input and output item slots. */
-  protected abstract boolean test_condition();
+  /** This is called to start a job.
+   *  Override to specify non-default behaviour.
+   */
+  protected void begin_work(){
+    inventory.begin_work();
+  }
 
-  protected void onJobStart(){}
+  /** Finishes working on the center ItemStack and increments the output.
+   *  Override to specify non-default behaviour.
+   */
+  protected void perform_work(){
+    inventory.output_result();
+  }
 
-  /** Finishes working on the center ItemStack and increments the output. */
-  protected abstract void perform_work();
+  @Override
+  public void onInventoryChanged(){
+    changed = true;
+  }
 
   @Override
   public void load(final BlockState blockstate, final CompoundNBT nbt){
@@ -163,17 +178,11 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
   public <T> LazyOptional<T> getCapability(final @Nonnull Capability<T> capability, final @Nullable Direction side){
     if(remove == false){
       if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
-        return InventoryUtil.getInventoryCapability(inventory.input_inventory, inventory.output_inventory, side);
+        return InventoryUtil.getInventoryCapability(inventory.getInputInventory(), inventory.getOutputInventory(), side);
       }
       return super.getCapability(capability, side);
     }
     return LazyOptional.empty();
-  }
-
-  @Override
-  public final void onInventoryChanged(){
-    refresh();
-    changed = true;
   }
 
   @Override
@@ -193,16 +202,16 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
 
   @Override
   public final InputInventory getInputInventory(){
-    return inventory.input_inventory;
+    return inventory.getInputInventory();
   }
   
   @Override
   public final OutputInventory getOutputInventory(){
-    return inventory.output_inventory;
+    return inventory.getOutputInventory();
   }
 
   public final CommonInventory getWorkingInventory(){
-    return inventory.working_inventory;
+    return inventory.getWorkingInventory();
   }
   
 }
