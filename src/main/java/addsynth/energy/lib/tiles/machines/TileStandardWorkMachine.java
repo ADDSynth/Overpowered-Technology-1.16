@@ -2,14 +2,7 @@ package addsynth.energy.lib.tiles.machines;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import addsynth.core.inventory.CommonInventory;
-import addsynth.core.inventory.IInputInventory;
-import addsynth.core.inventory.IOutputInventory;
-import addsynth.core.inventory.InputInventory;
-import addsynth.core.inventory.InventoryUtil;
-import addsynth.core.inventory.MachineInventory;
-import addsynth.core.inventory.OutputInventory;
-import addsynth.core.inventory.SlotData;
+import addsynth.core.inventory.*;
 import addsynth.energy.lib.config.MachineData;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
@@ -26,7 +19,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
  * @author ADDSynth
  */
 public abstract class TileStandardWorkMachine extends TileSwitchableMachine
-  implements IInputInventory, IOutputInventory {
+  implements IInputInventory, IOutputInventory, IMachineInventory {
 
   protected final MachineInventory inventory;
   private final double idle_energy;
@@ -109,7 +102,6 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
     case RUNNING:
       if(energy.isFull()){
         perform_work();
-        inventory.clear_working_inventory();
         energy.setEmpty();
         if(power_switch == false){
           turn_off();
@@ -152,12 +144,17 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
    *  Override to specify non-default behaviour.
    */
   protected void perform_work(){
-    inventory.output_result();
+    inventory.finish_work();
   }
 
   @Override
   public void onInventoryChanged(){
     changed = true;
+  }
+
+  @Override
+  public int getJobs(){
+    return inventory.getJobs();
   }
 
   @Override
@@ -210,6 +207,7 @@ public abstract class TileStandardWorkMachine extends TileSwitchableMachine
     return inventory.getOutputInventory();
   }
 
+  @Override
   public final CommonInventory getWorkingInventory(){
     return inventory.getWorkingInventory();
   }

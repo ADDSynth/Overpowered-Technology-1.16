@@ -13,6 +13,8 @@ FIXED:
   Fixed Ores that drop an item not being affected by Pickaxes with the Fortune effect.
   Fixed gem ores generating in a straight line at coordinates 0x0 in a chunk.
     - Error only occured in the Minecraft 1.16 version.
+  Finally added the Job system. Now the Magic Infuser and Circuit Fabricator
+    (machines with more than 1 input slot) will now show their Time Remaining correctly.
   More recipe advancement fixes.
 
 
