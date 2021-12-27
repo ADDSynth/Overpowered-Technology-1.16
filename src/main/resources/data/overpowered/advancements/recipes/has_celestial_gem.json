@@ -1,7 +1,7 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "overpowered_gem": {
+    "celestial_gem": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -14,14 +14,11 @@
   },
   "rewards": {
     "recipes": [
-      "overpowered:light_block",
-      "overpowered:celestial_gem_from_block",
       "overpowered:celestial_sword",
       "overpowered:celestial_pickaxe",
       "overpowered:celestial_axe",
       "overpowered:celestial_shovel",
-      "overpowered:celestial_hoe",
-      "overpowered:celestial_scythe"
+      "overpowered:celestial_hoe"
     ]
   }
 }
