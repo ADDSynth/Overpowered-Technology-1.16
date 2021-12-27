@@ -3,10 +3,10 @@ package addsynth.core.gameplay.music_box;
 import addsynth.core.gameplay.music_box.data.MusicGrid;
 import addsynth.core.gameplay.registers.Tiles;
 import addsynth.core.tiles.TileBase;
+import addsynth.core.util.game.MinecraftUtility;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 
 public final class TileMusicBox extends TileBase implements ITickableTileEntity {
@@ -101,9 +101,9 @@ public final class TileMusicBox extends TileBase implements ITickableTileEntity 
   }
 
   private final void play_next(){
-    final TileEntity tile = level.getBlockEntity(worldPosition.relative(Direction.from3DDataValue(next_direction)));
-    if(tile instanceof TileMusicBox){
-      ((TileMusicBox)tile).play(true);
+    final TileMusicBox tile = MinecraftUtility.getTileEntity(worldPosition.relative(Direction.from3DDataValue(next_direction)), level, TileMusicBox.class);
+    if(tile != null){
+      tile.play(true);
     }
   }
 
