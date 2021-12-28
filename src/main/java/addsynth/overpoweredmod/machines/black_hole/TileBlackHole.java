@@ -9,7 +9,9 @@ import addsynth.core.util.time.TimeUtil;
 import addsynth.core.util.world.WorldUtil;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.config.Config;
+import addsynth.overpoweredmod.game.core.Init;
 import addsynth.overpoweredmod.registers.Tiles;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -178,22 +180,24 @@ public final class TileBlackHole extends TileEntity implements ITickableTileEnti
 
   @SuppressWarnings({ "null", "resource" })
   private final void delete_blocks(){
-    BlockPos position;
+    final BlockPos.Mutable position = new BlockPos.Mutable();
+    Block block;
     boolean check_1;
     boolean check_2;
     do{
       // delete current position
-      position = new BlockPos(x,y,z);
-      if((x == worldPosition.getX() && y == worldPosition.getY() && z == worldPosition.getZ()) == false){
-        if(level.getBlockState(position).getBlock() != Blocks.AIR){
-          if(BlockMath.is_inside_sphere(worldPosition, radius, position)){
-            if(Config.black_holes_erase_bedrock.get()){
+      position.setX(x);
+      position.setY(y);
+      position.setZ(z);
+      block = level.getBlockState(position).getBlock();
+      if(block != Blocks.AIR && block != Init.black_hole){
+        if(BlockMath.is_inside_sphere(worldPosition, radius, position)){
+          if(Config.black_holes_erase_bedrock.get()){
+            WorldUtil.delete_block(level, position);
+          }
+          else{
+            if(block != Blocks.BEDROCK){
               WorldUtil.delete_block(level, position);
-            }
-            else{
-              if(level.getBlockState(position).getBlock() != Blocks.BEDROCK){
-                WorldUtil.delete_block(level, position);
-              }
             }
           }
         }
@@ -208,6 +212,7 @@ public final class TileBlackHole extends TileEntity implements ITickableTileEnti
           y -= 1;
           if(y < max_y){
             reached_the_end = true;
+            break;
           }
         }
       }
