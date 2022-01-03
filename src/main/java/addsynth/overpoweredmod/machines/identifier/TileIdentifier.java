@@ -51,7 +51,7 @@ public final class TileIdentifier extends TileStandardWorkMachine implements INa
   @Override
   protected final void perform_work(){
     final ItemStack input = inventory.getWorkingInventory().getStackInSlot(0);
-    if(input.isEmpty() == false){
+    if(input.isEmpty() == false){ // safety feature? couldn't hurt I guess. But getItem() returns AIR for Empty Itemstacks.
       if(input.getItem() instanceof UnidentifiedItem){
         final UnidentifiedItem item = (UnidentifiedItem)(input.getItem());
         final ItemStack stack = new ItemStack(ItemUtil.get_armor(item.armor_material, item.equipment_type), 1);
@@ -62,6 +62,7 @@ public final class TileIdentifier extends TileStandardWorkMachine implements INa
           player.awardStat(CustomStats.ITEMS_IDENTIFIED);
         }
       }
+      inventory.getWorkingInventory().setEmpty();
     }
   }
 
