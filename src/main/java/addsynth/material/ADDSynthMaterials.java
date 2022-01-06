@@ -75,7 +75,7 @@ public final class ADDSynthMaterials {
 
   private static final void main_setup(final FMLCommonSetupEvent event){
     // log.info("Begin ADDSynthMaterials main setup...");
-    log.info(CommonUtil.get_mod_info(MOD_NAME, "ADDSynth", VERSION, DevStage.DEVELOPMENT, VERSION_DATE));
+    log.info(CommonUtil.get_mod_info(MOD_NAME, "ADDSynth", VERSION, DevStage.STABLE, VERSION_DATE));
     // DELETE: OreGenerator.register();
     // DeferredWorkQueue.runLater(OreGenerator::register);
     // log.info("Finished ADDSynthMaterials main setup.");
