@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public final class BlackHoleBlock extends Block {
 
   public BlackHoleBlock(final String name){
-    super(Block.Properties.of(Material.AIR, MaterialColor.COLOR_BLACK).noCollission());
+    super(Block.Properties.of(Material.PORTAL, MaterialColor.COLOR_BLACK).noCollission());
     // setResistance(100.0f);
     OverpoweredTechnology.registry.register_block(this, name);
     OverpoweredTechnology.registry.register_ItemBlock(new BlackHoleItem(this));
