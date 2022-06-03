@@ -24,3 +24,8 @@ logs
 
 # Files from Forge MDK
 forge*changelog.txt
+
+
+#update scripts
+update.bat
+finalize_update.bat
