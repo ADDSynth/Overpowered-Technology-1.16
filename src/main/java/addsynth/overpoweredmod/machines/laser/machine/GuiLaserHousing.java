@@ -95,7 +95,7 @@ public final class GuiLaserHousing extends GuiEnergyBase<TileLaserHousing, Conta
     addButton(new OnOffSwitch<>(this.leftPos + 6, this.topPos + 17, tile)); // OPTIMIZE: On/Off switch position should be standardized.
     addButton(new AutoShutoffCheckbox<TileLaserHousing>(this.leftPos + check_box_x, this.topPos + check_box_y, tile));
     
-    this.text_box = new LaserDistanceTextField(this.font,this.leftPos + text_box_x,this.topPos + text_box_y,text_box_width,text_box_height, tile);
+    this.text_box = new LaserDistanceTextField(this.font, this.leftPos + text_box_x, this.topPos + text_box_y, text_box_width, text_box_height, tile);
     this.children.add(text_box);
   }
 
