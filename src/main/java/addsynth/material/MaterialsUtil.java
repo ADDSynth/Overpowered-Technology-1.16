@@ -61,6 +61,7 @@ public final class MaterialsUtil {
   }
 
   public static final ITag<Item> getTag(final ResourceLocation tag_id){
+    // FIX: getTag() could return null if tag doesn't exist. Check for null and add @Nullable
     return ItemTags.getAllTags().getTag(tag_id);
   }
 
@@ -76,9 +77,16 @@ public final class MaterialsUtil {
 
 // =======================================================================================
 
+  // TODO: This system needs to be updated, to produce either a Collection or Array of either Items, ItemStacks,
+  //       or Ingredient, with the user specifying the Material and requested form (item, ore, dust, or block)
+  //       Use a 2-dimensional Map, which takes in a Material and outputs a ResourceLocation.
   @Nullable
   public static final Collection<Item> getRubyBlocks(){
     return getItemCollection(new ResourceLocation("forge:storage_blocks/ruby"));
+  }
+
+  public static final Ingredient getRubyBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/ruby"));
   }
 
   @Nullable
@@ -86,9 +94,17 @@ public final class MaterialsUtil {
     return getItemCollection(new ResourceLocation("forge:storage_blocks/topaz"));
   }
 
+  public static final Ingredient getTopazBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/topaz"));
+  }
+
   @Nullable
   public static final Collection<Item> getCitrineBlocks(){
     return getItemCollection(new ResourceLocation("forge:storage_blocks/citrine"));
+  }
+
+  public static final Ingredient getCitrineBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/citrine"));
   }
 
   @Nullable
@@ -96,9 +112,17 @@ public final class MaterialsUtil {
     return getItemCollection(new ResourceLocation("forge:storage_blocks/emerald"));
   }
 
+  public static final Ingredient getEmeraldBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/emerald"));
+  }
+
   @Nullable
   public static final Collection<Item> getDiamondBlocks(){
     return getItemCollection(new ResourceLocation("forge:storage_blocks/diamond"));
+  }
+
+  public static final Ingredient getDiamondBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/diamond"));
   }
 
   @Nullable
@@ -106,14 +130,26 @@ public final class MaterialsUtil {
     return getItemCollection(new ResourceLocation("forge:storage_blocks/sapphire"));
   }
 
+  public static final Ingredient getSapphireBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/sapphire"));
+  }
+
   @Nullable
   public static final Collection<Item> getAmethystBlocks(){
     return getItemCollection(new ResourceLocation("forge:storage_blocks/amethyst"));
   }
 
+  public static final Ingredient getAmethystBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/amethyst"));
+  }
+
   @Nullable
   public static final Collection<Item> getQuartzBlocks(){
     return getItemCollection(new ResourceLocation("forge:storage_blocks/quartz"));
+  }
+
+  public static final Ingredient getQuartzBlocksIngredient(){
+    return getTagIngredient(new ResourceLocation("forge:storage_blocks/quartz"));
   }
 
   @Nullable
