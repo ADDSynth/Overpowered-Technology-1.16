@@ -20,6 +20,7 @@ import addsynth.overpoweredmod.machines.laser.beam.TileLaserBeam;
 import addsynth.overpoweredmod.machines.laser.cannon.TileLaser;
 import addsynth.overpoweredmod.machines.laser.machine.TileLaserHousing;
 import addsynth.overpoweredmod.machines.magic_infuser.TileMagicInfuser;
+import addsynth.overpoweredmod.machines.plasma_generator.TilePlasmaGenerator;
 import addsynth.overpoweredmod.machines.portal.control_panel.TilePortalControlPanel;
 import addsynth.overpoweredmod.machines.portal.frame.TilePortalFrame;
 import addsynth.overpoweredmod.machines.portal.rift.TilePortal;
@@ -85,6 +86,9 @@ public final class Tiles {
 
   public static final TileEntityType<TileBlackHole> BLACK_HOLE =
     TileEntityType.Builder.of(TileBlackHole::new, Init.black_hole).build(null);
+
+  public static final TileEntityType<TilePlasmaGenerator> PLASMA_GENERATOR =
+    TileEntityType.Builder.of(TilePlasmaGenerator::new, Machines.plasma_generator).build(null);
 
   static {
     Debug.log_setup_info(Tiles.class.getName()+" class finished loading.");
