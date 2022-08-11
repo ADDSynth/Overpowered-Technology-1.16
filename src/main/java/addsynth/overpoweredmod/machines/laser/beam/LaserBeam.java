@@ -1,6 +1,5 @@
 package addsynth.overpoweredmod.machines.laser.beam;
 
-import javax.annotation.Nullable;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.DamageSources;
 import addsynth.overpoweredmod.config.Config;
@@ -9,7 +8,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -51,17 +49,6 @@ public final class LaserBeam extends Block {
         entity.setSecondsOnFire(8); // 8 seconds is the same time Vanilla sets players on fire when in contact with fire.
       }
     }
-  }
-
-  @Override
-  public boolean hasTileEntity(BlockState state){
-    return true;
-  }
-
-  @Override
-  @Nullable
-  public final TileEntity createTileEntity(BlockState state, IBlockReader world){
-    return new TileLaserBeam();
   }
 
   @Override

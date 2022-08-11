@@ -2,7 +2,6 @@ package addsynth.overpoweredmod.registers;
 
 import addsynth.overpoweredmod.Debug;
 import addsynth.overpoweredmod.game.core.Init;
-import addsynth.overpoweredmod.game.core.Laser;
 import addsynth.overpoweredmod.game.core.Machines;
 import addsynth.overpoweredmod.game.core.Portal;
 import addsynth.overpoweredmod.game.core.Wires;
@@ -16,8 +15,6 @@ import addsynth.overpoweredmod.machines.fusion.converter.TileFusionEnergyConvert
 import addsynth.overpoweredmod.machines.gem_converter.TileGemConverter;
 import addsynth.overpoweredmod.machines.identifier.TileIdentifier;
 import addsynth.overpoweredmod.machines.inverter.TileInverter;
-import addsynth.overpoweredmod.machines.laser.beam.TileLaserBeam;
-import addsynth.overpoweredmod.machines.laser.cannon.TileLaser;
 import addsynth.overpoweredmod.machines.laser.machine.TileLaserHousing;
 import addsynth.overpoweredmod.machines.magic_infuser.TileMagicInfuser;
 import addsynth.overpoweredmod.machines.plasma_generator.TilePlasmaGenerator;
@@ -71,12 +68,6 @@ public final class Tiles {
 
   public static final TileEntityType<TileLaserHousing> LASER_MACHINE =
     TileEntityType.Builder.of(TileLaserHousing::new, Machines.laser_housing).build(null);
-
-  public static final TileEntityType<TileLaser> LASER =
-    TileEntityType.Builder.of(TileLaser::new, Laser.cannons).build(null);
-
-  public static final TileEntityType<TileLaserBeam> LASER_BEAM =
-    TileEntityType.Builder.of(TileLaserBeam::new, Laser.beams).build(null);
 
   public static final TileEntityType<TileFusionEnergyConverter> FUSION_ENERGY_CONVERTER =
     TileEntityType.Builder.of(TileFusionEnergyConverter::new, Machines.fusion_converter).build(null);

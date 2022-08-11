@@ -9,7 +9,6 @@ import addsynth.overpoweredmod.machines.fusion.converter.TileFusionEnergyConvert
 import addsynth.overpoweredmod.machines.gem_converter.TileGemConverter;
 import addsynth.overpoweredmod.machines.identifier.TileIdentifier;
 import addsynth.overpoweredmod.machines.inverter.TileInverter;
-import addsynth.overpoweredmod.machines.laser.cannon.TileLaser;
 import addsynth.overpoweredmod.machines.laser.machine.TileLaserHousing;
 import addsynth.overpoweredmod.machines.magic_infuser.TileMagicInfuser;
 import addsynth.overpoweredmod.machines.portal.control_panel.TilePortalControlPanel;
@@ -32,7 +31,6 @@ public final class AppliedEnergisticsCompat implements IAEAddon {
     moveable_registry.whiteListTileEntity(TileMagicInfuser.class);
     moveable_registry.whiteListTileEntity(TileIdentifier.class);
     moveable_registry.whiteListTileEntity(TileDataCable.class);
-    moveable_registry.whiteListTileEntity(TileLaser.class);
     moveable_registry.whiteListTileEntity(TileLaserHousing.class);
     moveable_registry.whiteListTileEntity(TileCrystalMatterGenerator.class);
     moveable_registry.whiteListTileEntity(TilePortalControlPanel.class);
