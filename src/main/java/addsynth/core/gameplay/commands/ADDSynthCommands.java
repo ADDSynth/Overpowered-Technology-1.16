@@ -8,9 +8,9 @@ import net.minecraft.command.CommandSource;
 import net.minecraftforge.event.TickEvent.Phase;
 import net.minecraftforge.event.TickEvent.ServerTickEvent;
 
-/** @see net.minecraft.network.play.ServerPlayNetHandler#handleSlashCommand
+/** @see net.minecraft.network.play.ServerPlayNetHandler#handleCommand
  *  @see net.minecraft.server.dedicated.DedicatedServer#handleConsoleInput
- *  @see net.minecraft.command.Commands#handleCommand
+ *  @see net.minecraft.command.Commands#performCommand
  */
 public final class ADDSynthCommands {
 

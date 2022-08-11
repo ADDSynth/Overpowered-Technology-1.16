@@ -17,7 +17,7 @@ public final class MobUtil {
   /**
    * @param entity
    * @param direction must be a float value from 0.0f to 359.999999f
-   * @see net.minecraft.util.Direction#getHorizontalAngle()
+   * @see net.minecraft.util.Direction#toYRot()
    */
   public static final void setEntityFacingDirection(final Entity entity, final float direction){
     entity.yRot = direction;

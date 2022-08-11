@@ -224,7 +224,7 @@ public final class GuiUtil {
     // drawItemStack(second_stack, x, y,        blend_factor);
   }
 
-  /** This must be called in the {@link ContainerScreen#renderHoveredToolTip(int, int)} method.<br>
+  /** This must be called in the {@link ContainerScreen#renderTooltip(MatrixStack, int, int)} method.<br>
    *  The X and Y coordinates must have the <code>guiLeft</code> and <code>guiTop</code> values added. */
   // REPLICA of Screen.renderTooltip(ItemStack, mouse_x, mouse_y);
   public static final void drawItemTooltip(MatrixStack matrix, Screen screen, ItemStack itemStack, int x, int y, int mouse_x, int mouse_y){

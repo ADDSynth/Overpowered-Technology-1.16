@@ -141,7 +141,7 @@ public final class MusicGrid {
    * @param world
    * @param position
    * @param frame
-   * @see net.minecraft.block.NoteBlock#eventReceived
+   * @see net.minecraft.block.NoteBlock#triggerEvent
    */
   public final void play_frame(final World world, final BlockPos position, final byte frame){
     if(world != null && frame >= 0){

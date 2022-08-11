@@ -114,7 +114,7 @@ import net.minecraft.world.server.ServerWorld;
  * another BlockNetwork during a BlockNetwork update, check if it is null and initialize it yourself.
  *
  * <p><b>10.</b> Continuing from #7, This scenerio involves when during the BlockNetwork update, it changes
- * a block in the world, such as by calling {@link World#setBlockState(BlockPos, BlockState, int)}.
+ * a block in the world, such as by calling {@link World#setBlock(BlockPos, BlockState, int)}.
  * This will then call {@link Block#neighborChanged(BlockState, World, BlockPos, Block, BlockPos, boolean)}
  * Which can cause some Block Networks to begin updating again, while during the first update, which may
  * trigger a Null Pointer Exception. Argh, I'm not explaining this very well. You must either check
@@ -257,8 +257,8 @@ public abstract class BlockNetwork<T extends TileEntity & IBlockNetworkUser> {
    *   Call this in the block's
    *   {@link Block#neighborChanged(BlockState, World, BlockPos, Block, BlockPos, boolean)} method.<br>
    *   <b>Do not use</b> the {@link Block#onNeighborChange(BlockState, net.minecraft.world.IWorldReader, BlockPos, BlockPos)} method!
-   *   Starting in Minecraft 1.11 the {@link World#updateComparatorOutputLevel(BlockPos, Block)} method
-   *   is no longer called at the end of the {@link World#setTileEntity(BlockPos, TileEntity)} function,
+   *   Starting in Minecraft 1.11 the {@link World#updateNeighbourForOutputSignal(BlockPos, Block)} method
+   *   is no longer called at the end of the {@link World#setBlockEntity(BlockPos, TileEntity)} function,
    *   so it doesn't update Block Networks at all.
    * <p>NOTE: It seems <code>onNeighborChange()</code> is added by Forge and only gets called if the neighbor block was
    *   a TileEntity, whereas <code>neighborChanged()</code> gets called every time an adjacent block gets changed.

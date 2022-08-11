@@ -46,8 +46,8 @@ public final class EnergyWire extends Wire {
     return new TileEnergyWire();
   }
 
-  /** Starting in Minecraft 1.11, {@link World#addTileEntity(TileEntity)} no longer calls
-   *  {@link World#updateComparatorOutputLevel(BlockPos, Block)} at the end of the function.
+  /** Starting in Minecraft 1.11, {@link World#addBlockEntity(TileEntity)} no longer calls
+   *  {@link World#updateNeighbourForOutputSignal(BlockPos, Block)} at the end of the function.
    *  For this reason we have to use {@link #neighborChanged(BlockState, World, BlockPos, Block, BlockPos, boolean)}
    *  instead of {@link #onNeighborChange(BlockState, IWorldReader, BlockPos, BlockPos)} like we do in Minecraft 1.10.
    *  As it turns out, not even Vanilla Minecraft uses the <code>onNeighborChange()</code> function a whole lot.

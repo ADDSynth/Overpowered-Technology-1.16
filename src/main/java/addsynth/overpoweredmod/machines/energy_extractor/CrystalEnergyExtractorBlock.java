@@ -42,7 +42,7 @@ public final class CrystalEnergyExtractorBlock extends MachineBlock {
     return new TileCrystalEnergyExtractor();
   }
 
-  /** @deprecated Call via {@link BlockState#onBlockActivated(World, PlayerEntity, Hand, BlockRayTraceResult)} whenever possible.
+  /** @deprecated Call via {@link BlockState#use(World, PlayerEntity, Hand, BlockRayTraceResult)} whenever possible.
     * Implementing/overriding is fine.
   */
   @Override

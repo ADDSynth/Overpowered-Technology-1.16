@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 /**
  * Man did I have trouble with this one. I don't feel like explaining how it works right now.
  * Just run in debug mode and step through the code yourself to see how it works.
- * @see net.minecraft.block.TNTBlock#onBlockActivated
+ * @see net.minecraft.block.TNTBlock#use
  * @see net.minecraft.item.BucketItem
  * @see net.minecraft.item.EnderEyeItem
  */

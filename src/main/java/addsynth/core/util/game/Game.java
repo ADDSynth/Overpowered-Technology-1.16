@@ -14,7 +14,7 @@ public final class Game {
     return sound;
   }
 
-  /** @see Stats#registerCustom(String, IStatFormatter) */
+  /** @see Stats#makeCustomStat(String, IStatFormatter) */
   public static final void registerCustomStat(final ResourceLocation stat){
     Registry.register(Registry.CUSTOM_STAT, stat.getPath(), stat);
     Stats.CUSTOM.get(stat, IStatFormatter.DEFAULT);
