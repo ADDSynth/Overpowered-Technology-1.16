@@ -1,5 +1,6 @@
 package addsynth.overpoweredmod.machines.black_hole;
 
+import addsynth.core.util.data.AdvancementUtil;
 import addsynth.core.util.game.MessageUtil;
 import addsynth.core.util.math.BlockMath;
 import addsynth.core.util.math.MathUtility;
@@ -8,14 +9,16 @@ import addsynth.core.util.time.TimeConstants;
 import addsynth.core.util.time.TimeUtil;
 import addsynth.core.util.world.WorldUtil;
 import addsynth.overpoweredmod.OverpoweredTechnology;
+import addsynth.overpoweredmod.assets.CustomAdvancements;
 import addsynth.overpoweredmod.config.Config;
 import addsynth.overpoweredmod.game.core.Init;
+import addsynth.overpoweredmod.items.DimensionalAnchor;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -165,10 +168,15 @@ public final class TileBlackHole extends TileEntity implements ITickableTileEnti
   private final void delete_entities(){
     for(final Entity entity : level.getEntitiesOfClass(Entity.class, entity_area, null)){
       if(MathUtility.get_distance(center_x, center_y, center_z, entity.getX(), entity.getY(), entity.getZ()) <= radius){
-        if(entity instanceof PlayerEntity){ // server players
-          final PlayerEntity player = (PlayerEntity)entity;
-          if(player.isCreative() == false && player.isSpectator() == false){
-            player.setHealth(0.0f); // Do Not Remove Players! You must DAMAGE them!
+        if(entity instanceof ServerPlayerEntity){
+          final ServerPlayerEntity player = (ServerPlayerEntity)entity;
+          if(player.gameMode.isSurvival()){
+            if(DimensionalAnchor.player_has_dimensional_anchor(player)){
+              AdvancementUtil.grantAdvancement(player, CustomAdvancements.SURVIVOR);
+            }
+            else{
+              player.setHealth(0.0f); // Do Not Remove Players! You must DAMAGE them!
+            }
           }
         }
         else{
