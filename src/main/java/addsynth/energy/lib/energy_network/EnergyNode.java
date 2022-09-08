@@ -8,7 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public final class EnergyNode extends Node {
 
-  public final Energy energy;
+  private final Energy energy;
 
   public <E extends TileEntity & IEnergyUser> EnergyNode(@Nonnull final E tileEntity){
     super(tileEntity.getBlockPos(), tileEntity.getBlockState().getBlock(), tileEntity);
@@ -18,6 +18,10 @@ public final class EnergyNode extends Node {
   public EnergyNode(@Nonnull final TileEntity tileEntity, @Nonnull final Energy energy){
     super(tileEntity.getBlockPos(), tileEntity.getBlockState().getBlock(), tileEntity);
     this.energy = energy;
+  }
+
+  public final Energy getEnergy(){
+    return energy;
   }
 
   @Override
