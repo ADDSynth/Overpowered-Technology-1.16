@@ -5,6 +5,12 @@ import addsynth.core.block_network.BlockNetworkUtil;
 import addsynth.energy.lib.energy_network.EnergyNetwork;
 import net.minecraft.tileentity.TileEntityType;
 
+/** This class defines a block that is part of an Energy Network. Machines that
+ *  work with Energy must be connected to one of these types of blocks.
+ *  This is mainly used by Energy Wires.
+ * @author ADDSynth
+ * @see addsynth.energy.gameplay.machines.universal_energy_interface.TileUniversalEnergyInterface
+ */
 public abstract class BasicEnergyNetworkTile extends AbstractEnergyNetworkTile {
 
   public BasicEnergyNetworkTile(final TileEntityType type){

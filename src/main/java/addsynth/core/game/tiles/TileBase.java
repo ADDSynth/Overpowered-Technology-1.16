@@ -1,37 +1,22 @@
 package addsynth.core.game.tiles;
 
-import addsynth.core.ADDSynthCore;
 import addsynth.core.block_network.BlockNetwork;
-import addsynth.core.util.game.MessageUtil;
-import addsynth.core.util.world.WorldUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.util.Constants;
 
-/** YES! ALL of ADDSynth's TileEntities should override THIS class, because this
- *  simplifies updating the TileEntity, and has many common features!
+/** This is the standard Base TileEntity that most TileEntities should derive from.
+ *  It greatly simplifies syncing data to clients, and automatically handles world
+ *  saving and loading. 
+ *  @author ADDSynth
  */
-public abstract class TileBase extends TileEntity {
+public abstract class TileBase extends TileAbstractBase {
 
   public TileBase(final TileEntityType type){
     super(type);
-  }
-
-  @SuppressWarnings("null")
-  protected final boolean onServerSide(){
-    return !level.isClientSide;
-  }
-
-  @SuppressWarnings("null")
-  protected final boolean onClientSide(){
-    return level.isClientSide;
   }
 
   // http://mcforge.readthedocs.io/en/latest/tileentities/tileentity/#synchronizing-the-data-to-the-client
@@ -80,26 +65,13 @@ public abstract class TileBase extends TileEntity {
    *     this so that you instead update the BlockNetwork which then updates each TileEntity manually.</p>
    */
   @SuppressWarnings("null")
+  @Override
   public void update_data(){
     if(level != null){
       setChanged();
-      final BlockState blockstate = level.getBlockState(worldPosition); // OPTIMIZE: Use TileEntity's blockstate field.
+      final BlockState blockstate = getBlockState();
       level.sendBlockUpdated(worldPosition, blockstate, blockstate, Constants.BlockFlags.DEFAULT);
     }
-  }
-
-  protected final void report_ticking_error(final Throwable e){
-    ADDSynthCore.log.fatal(
-      "Encountered an error while ticking TileEntity: "+getClass().getSimpleName()+", at position: "+worldPosition+". "+
-      "Please report this to the developer.", e);
-
-    WorldUtil.delete_block(level, worldPosition);
-
-    final TranslationTextComponent message = new TranslationTextComponent("message.addsynthcore.tileentity_error",
-      getClass().getSimpleName(), worldPosition.getX(), worldPosition.getY(), worldPosition.getZ());
-
-    message.setStyle(Style.EMPTY.withColor(TextFormatting.RED));
-    MessageUtil.send_to_all_players_in_world(level, message);
   }
 
 }

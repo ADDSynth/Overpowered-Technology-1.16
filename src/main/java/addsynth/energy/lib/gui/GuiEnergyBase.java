@@ -13,6 +13,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
+/** Base Gui class for machines that use {@link Energy}. Contains helper
+ *  functions for drawing energy variables and machine status.
+ * @author ADDSynth
+ * @param <T> TileEntity that implements the {@link IEnergyUser} interface
+ * @param <C> The Container class object for the machine
+ */
 public abstract class GuiEnergyBase<T extends TileEntity & IEnergyUser, C extends TileEntityContainer<T>> extends GuiContainerBase<C> {
 
   protected final T tile;
