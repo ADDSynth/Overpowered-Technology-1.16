@@ -9,28 +9,28 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.network.NetworkEvent;
 
-public final class ChangeCircuitCraftType {
+public final class ChangeCircuitFabricatorRecipe {
 
   private final BlockPos position;
-  private final int circuit_id;
+  private final String recipe_output;
 
-  public ChangeCircuitCraftType(final BlockPos position, final int circuit_id){
+  public ChangeCircuitFabricatorRecipe(final BlockPos position, final String recipe_output){
     this.position = position;
-    this.circuit_id = circuit_id;
+    this.recipe_output = recipe_output;
   }
 
-  public static final void encode(final ChangeCircuitCraftType message, final PacketBuffer buf){
+  public static final void encode(final ChangeCircuitFabricatorRecipe message, final PacketBuffer buf){
     buf.writeInt(message.position.getX());
     buf.writeInt(message.position.getY());
     buf.writeInt(message.position.getZ());
-    buf.writeInt(message.circuit_id);
+    buf.writeUtf(message.recipe_output);
   }
 
-  public static final ChangeCircuitCraftType decode(final PacketBuffer buf){
-    return new ChangeCircuitCraftType(new BlockPos(buf.readInt(),buf.readInt(),buf.readInt()), buf.readInt());
+  public static final ChangeCircuitFabricatorRecipe decode(final PacketBuffer buf){
+    return new ChangeCircuitFabricatorRecipe(new BlockPos(buf.readInt(),buf.readInt(),buf.readInt()), buf.readUtf());
   }
 
-  public static void handle(final ChangeCircuitCraftType message, final Supplier<NetworkEvent.Context> context_supplier){
+  public static void handle(final ChangeCircuitFabricatorRecipe message, final Supplier<NetworkEvent.Context> context_supplier){
     final NetworkEvent.Context context = context_supplier.get();
     final ServerPlayerEntity player = context.getSender();
     if(player != null){
@@ -40,7 +40,7 @@ public final class ChangeCircuitCraftType {
         if(world.isAreaLoaded(message.position, 0)){
           final TileCircuitFabricator tile = MinecraftUtility.getTileEntity(message.position, world, TileCircuitFabricator.class);
           if(tile != null){
-            tile.change_circuit_craft(message.circuit_id);
+            tile.change_recipe(message.recipe_output);
             tile.ejectInvalidItems(player); // must stay here because we have access to the player?
           }
           else{

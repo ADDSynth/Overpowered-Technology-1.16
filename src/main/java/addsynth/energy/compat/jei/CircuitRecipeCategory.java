@@ -9,6 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableBuilder;
 import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
@@ -23,7 +24,9 @@ public final class CircuitRecipeCategory implements IRecipeCategory<CircuitFabri
   private final IDrawable icon;
 
   public CircuitRecipeCategory(final IGuiHelper gui_helper){
-    background = gui_helper.createDrawable(gui_texture, 67, 67, 140, 54);
+    final IDrawableBuilder drawable_builder = gui_helper.drawableBuilder(gui_texture, 153, 67, 140, 54);
+    drawable_builder.setTextureSize(384, 256);
+    background = drawable_builder.build();
     icon = gui_helper.createDrawableIngredient(new ItemStack(EnergyBlocks.circuit_fabricator));
   }
 

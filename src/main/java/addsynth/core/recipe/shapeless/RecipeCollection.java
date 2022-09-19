@@ -11,7 +11,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class RecipeCollection <T extends AbstractRecipe> {
 
@@ -107,6 +109,21 @@ public class RecipeCollection <T extends AbstractRecipe> {
     T recipe = null;
     for(T r : recipes){
       if(r.getResultItem().sameItem(output)){
+        recipe = r;
+        break;
+      }
+    }
+    return recipe;
+  }
+
+  public final T find_recipe(final ResourceLocation registry_key){
+    final Item output = ForgeRegistries.ITEMS.getValue(registry_key);
+    if(output == null){
+      return null;
+    }
+    T recipe = null;
+    for(T r : recipes){
+      if(r.getResultItem().getItem() == output){
         recipe = r;
         break;
       }
