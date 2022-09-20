@@ -8,7 +8,6 @@ import addsynth.core.game.RegistryUtil;
 import addsynth.core.gameplay.Core;
 import addsynth.core.gameplay.NetworkHandler;
 import addsynth.core.gameplay.commands.ADDSynthCommands;
-import addsynth.core.gameplay.compat.CompatabilityManager;
 import addsynth.core.gameplay.team_manager.data.CriteriaData;
 import addsynth.core.gameplay.team_manager.data.TeamData;
 import addsynth.core.util.CommonUtil;
@@ -20,7 +19,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -101,11 +99,10 @@ public final class ADDSynthCore {
   
     Debug.debug();
     if(Config.debug_mod_detection.get()){
-      DeferredWorkQueue.runLater(() -> Compatibility.debug());
+      event.enqueueWork(() -> Compatibility.debug());
     }
     NetworkHandler.registerMessages();
     MaterialsUtil.registerResponder(Debug::dump_tags);
-    DeferredWorkQueue.runLater(() -> CompatabilityManager.init());
 
     log.info("Finished ADDSynthCore main setup.");
   }
