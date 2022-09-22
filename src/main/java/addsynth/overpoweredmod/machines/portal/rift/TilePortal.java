@@ -1,13 +1,16 @@
 package addsynth.overpoweredmod.machines.portal.rift;
 
 import addsynth.core.game.tiles.TileBase;
+import addsynth.core.util.time.TimeConstants;
+import addsynth.overpoweredmod.config.Values;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.tileentity.ITickableTileEntity;
+import net.minecraft.world.World;
 
 public final class TilePortal extends TileBase implements ITickableTileEntity {
 
   private int count = 0;
-  private static final int life = 800;
+  private final int life = Values.portal_spawn_time.get() * TimeConstants.ticks_per_second;
 
   public TilePortal(){
     super(Tiles.PORTAL_BLOCK);
@@ -18,7 +21,10 @@ public final class TilePortal extends TileBase implements ITickableTileEntity {
     if(onServerSide()){
       count += 1;
       if(count >= life){
-        level.removeBlock(worldPosition, false);
+        final World level = this.level;
+        if(level != null){
+          level.removeBlock(worldPosition, false);
+        }
       }
     }
   }
