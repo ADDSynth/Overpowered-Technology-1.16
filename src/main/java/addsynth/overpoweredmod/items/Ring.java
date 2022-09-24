@@ -4,7 +4,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.game.items.ItemValue;
 import addsynth.overpoweredmod.compatability.curios.RingEffects;
-import addsynth.overpoweredmod.config.Config;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -32,7 +31,7 @@ public final class Ring extends OverpoweredItem implements ICurioItem {
       // then Re-adds the effect every second. This is far superior than checking to see if the
       // entity has the effect, and then if the effect is about to run out.
       // But we still need the special case for the Extra Health effect.
-      RingEffects.checkEntityHasEffect(stack, livingEntity, Config.rings_have_particle_effects.get());
+      RingEffects.checkEntityHasEffect(stack, livingEntity);
     }
   }
   

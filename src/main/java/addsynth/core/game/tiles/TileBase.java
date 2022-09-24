@@ -34,7 +34,7 @@ public abstract class TileBase extends TileAbstractBase {
 
   @Override
   public final SUpdateTileEntityPacket getUpdatePacket(){
-    CompoundNBT nbtTag = new CompoundNBT();
+    final CompoundNBT nbtTag = new CompoundNBT();
     save(nbtTag);
     return new SUpdateTileEntityPacket(this.worldPosition, -1, nbtTag);
   }
@@ -46,7 +46,7 @@ public abstract class TileBase extends TileAbstractBase {
 
   @Override
   public final CompoundNBT getUpdateTag(){
-    CompoundNBT nbtTagCompound = new CompoundNBT();
+    final CompoundNBT nbtTagCompound = new CompoundNBT();
     save(nbtTagCompound);
     return nbtTagCompound;
   }
