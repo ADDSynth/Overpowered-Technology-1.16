@@ -1,9 +1,10 @@
-package addsynth.core.util.math;
+package addsynth.core.util.math.block;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import net.minecraft.util.math.BlockPos;
+import addsynth.core.util.math.MathUtility;
 
 public final class BlockMath {
 
@@ -233,7 +234,7 @@ public final class BlockMath {
       }
       return new BlockPos[] {new BlockPos(min_x, min_y, min_z), new BlockPos(max_x, max_y, max_z)};
     }
-    throw new IllegalArgumentException("Function "+MathUtility.class.getName()+".get_min_max_position() requires a list that has at least one BlockPos element.");
+    throw new IllegalArgumentException("Function "+BlockMath.class.getName()+".get_min_max_position() requires a list that has at least one BlockPos element.");
   }
 
   public static final boolean is_full_rectangle(final Collection<BlockPos> list){
