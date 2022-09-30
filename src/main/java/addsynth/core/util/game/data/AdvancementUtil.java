@@ -1,11 +1,13 @@
 package addsynth.core.util.game.data;
 
 import java.util.Set;
+import addsynth.core.util.player.PlayerUtil;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
 public final class AdvancementUtil {
 
@@ -22,6 +24,19 @@ public final class AdvancementUtil {
       final AdvancementManager manager = server.getAdvancements();
       final Advancement advancement = manager.getAdvancement(advancement_id);
       player.getAdvancements().award(advancement, criteria_id);
+    }
+  }
+
+
+  /** This grants the advancement using the first criteria of the advancement.
+   * @param player_name
+   * @param world
+   * @param advancement
+   */
+  public static final void grantAdvancement(String player_name, World world, ResourceLocation advancement){
+    final ServerPlayerEntity player = PlayerUtil.getPlayer(world, player_name);
+    if(player != null){
+      grantAdvancement(player, advancement);
     }
   }
 

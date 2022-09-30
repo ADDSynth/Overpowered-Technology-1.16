@@ -4,6 +4,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.block_network.BlockNetworkUtil;
 import addsynth.core.util.game.MinecraftUtility;
+import addsynth.core.util.game.tileentity.TileEntityUtil;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.CreativeTabs;
@@ -72,12 +73,7 @@ public final class LaserHousingBlock extends MachineBlock {
 
   @Override
   public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack){
-    if(placer instanceof ServerPlayerEntity){ // ensures block was placed by player and on server side
-      final TileLaserHousing tile = MinecraftUtility.getTileEntity(pos, world, TileLaserHousing.class);
-      if(tile != null){
-        tile.setPlayer((ServerPlayerEntity)placer);
-      }
-    }
+    TileEntityUtil.setOwner(world, placer, pos);
   }
 
 }

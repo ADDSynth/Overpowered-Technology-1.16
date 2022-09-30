@@ -10,7 +10,6 @@ import addsynth.overpoweredmod.game.core.ModItems;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
@@ -47,7 +46,7 @@ public final class TileFusionChamber extends TileStorageMachine implements IName
     return on;
   }
 
-  public final void set_state(final boolean state, final ServerPlayerEntity player){
+  public final void set_state(final boolean state, final String player_name){
     if(on != state){ // Only run on state change
       int i;
       BlockPos position;
@@ -59,9 +58,7 @@ public final class TileFusionChamber extends TileStorageMachine implements IName
             //       OpenGL special effects that doesn't touch the world and immune to player interference.
             level.setBlock(position, Machines.fusion_control_laser_beam.defaultBlockState(), 3);
             // TEST why would we need block updates for this? Can this just be set to 2 for Client updates?
-            if(player != null){
-              AdvancementUtil.grantAdvancement(player, CustomAdvancements.FUSION_ENERGY);
-            }
+            AdvancementUtil.grantAdvancement(player_name, level, CustomAdvancements.FUSION_ENERGY);
           }
           else{
             level.removeBlock(position, false);

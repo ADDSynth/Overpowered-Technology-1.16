@@ -28,8 +28,6 @@ import net.minecraft.util.text.TranslationTextComponent;
 
 public final class TileIdentifier extends TileStandardWorkMachine implements INamedContainerProvider {
 
-  private ServerPlayerEntity player;
-
   private static final Item[] unidentified_armor = ArrayUtil.combine_arrays(
     Tools.unidentified_armor[0],
     Tools.unidentified_armor[1],
@@ -72,6 +70,7 @@ public final class TileIdentifier extends TileStandardWorkMachine implements INa
         }
         
         // Award Advancement to Player
+        final ServerPlayerEntity player = PlayerUtil.getPlayer(level, last_used_by);
         if(player != null){
           AdvancementUtil.grantAdvancement(player, CustomAdvancements.IDENTIFY_SOMETHING);
           player.awardStat(CustomStats.ITEMS_IDENTIFIED);
@@ -84,25 +83,20 @@ public final class TileIdentifier extends TileStandardWorkMachine implements INa
   @Override
   public void load(final BlockState blockstate, final CompoundNBT nbt){
     super.load(blockstate, nbt);
-    player = PlayerUtil.getPlayer(level, nbt.getString("Player"));
+    loadPlayerData(nbt);
   }
 
   @Override
   public CompoundNBT save(final CompoundNBT nbt){
     super.save(nbt);
-    if(player != null){
-      nbt.putString("Player", player.getGameProfile().getName());
-    }
+    savePlayerData(nbt);
     return nbt;
   }
 
   @Override
   @Nullable
   public Container createMenu(int id, PlayerInventory player_inventory, PlayerEntity player){
-    if(player instanceof ServerPlayerEntity){
-      this.player = (ServerPlayerEntity)player;
-      changed = true;
-    }
+    setPlayerAccessed(player);
     return new ContainerIdentifier(id, player_inventory, this);
   }
 

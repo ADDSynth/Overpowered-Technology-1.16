@@ -29,7 +29,6 @@ import net.minecraft.util.text.TranslationTextComponent;
 
 public final class TileGemConverter extends TileStandardWorkMachine implements INamedContainerProvider {
 
-  private ServerPlayerEntity player;
   private byte selection;
   private ItemStack gem_selected = new ItemStack(Material.RUBY.gem, 1);
   private byte converting_to;
@@ -62,9 +61,7 @@ public final class TileGemConverter extends TileStandardWorkMachine implements I
     super.save(nbt);
     nbt.putByte("Gem Selected", selection);
     nbt.putByte("Converting To", converting_to);
-    if(player != null){
-      nbt.putString("Player", player.getGameProfile().getName());
-    }
+    savePlayerData(nbt);
     return nbt;
   }
 
@@ -74,7 +71,7 @@ public final class TileGemConverter extends TileStandardWorkMachine implements I
     selection = nbt.getByte("Gem Selected");
     gem_selected = Gems.getItemStack(selection); // updates on client-side and server-side
     converting_to = nbt.getByte("Converting To");
-    player = PlayerUtil.getPlayer(level, nbt.getString("Player"));
+    loadPlayerData(nbt);
   }
 
   @Override
@@ -125,6 +122,14 @@ public final class TileGemConverter extends TileStandardWorkMachine implements I
   protected final void perform_work(){
     inventory.getOutputInventory().insertItem(0, Gems.getItemStack(converting_to), false);
     
+    increment_gems_stat(last_used_by);
+    
+    inventory.getWorkingInventory().setEmpty();
+    // inventory.recheck();    recheck is called every tick when the inventory changes.
+  }
+
+  private final void increment_gems_stat(final String player_name){
+    final ServerPlayerEntity player = PlayerUtil.getPlayer(level, player_name);
     if(player != null){
       final Stat gems_converted_stat = Stats.CUSTOM.get(CustomStats.GEMS_CONVERTED);
       player.awardStat(gems_converted_stat);
@@ -132,9 +137,6 @@ public final class TileGemConverter extends TileStandardWorkMachine implements I
         AdvancementUtil.grantAdvancement(player, CustomAdvancements.CONVERT_A_THOUSAND_GEMS);
       }
     }
-    
-    inventory.getWorkingInventory().setEmpty();
-    // inventory.recheck();    recheck is called every tick when the inventory changes.
   }
 
   public final int get_gem_selected(){
@@ -148,9 +150,7 @@ public final class TileGemConverter extends TileStandardWorkMachine implements I
   @Override
   @Nullable
   public Container createMenu(int id, PlayerInventory player_inventory, PlayerEntity player){
-    if(player instanceof ServerPlayerEntity){
-      this.player = (ServerPlayerEntity)player;
-    }
+    setPlayerAccessed(player);
     return new ContainerGemConverter(id, player_inventory, this);
   }
 
