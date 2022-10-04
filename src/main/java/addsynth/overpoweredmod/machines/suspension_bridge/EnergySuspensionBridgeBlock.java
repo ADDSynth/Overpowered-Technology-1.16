@@ -3,12 +3,14 @@ package addsynth.overpoweredmod.machines.suspension_bridge;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.util.game.MinecraftUtility;
+import addsynth.core.util.game.tileentity.TileEntityUtil;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.CreativeTabs;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
@@ -40,6 +42,11 @@ public final class EnergySuspensionBridgeBlock extends MachineBlock {
   @Override
   public final void appendHoverText(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn){
     tooltip.add(new TranslationTextComponent("gui.addsynth_energy.tooltip.class_2_machine"));
+  }
+
+  @Override
+  public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack){
+    TileEntityUtil.setOwner(world, placer, pos);
   }
 
   @Override
