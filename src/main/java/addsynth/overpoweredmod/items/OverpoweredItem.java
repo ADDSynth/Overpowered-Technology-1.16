@@ -1,25 +1,25 @@
 package addsynth.overpoweredmod.items;
 
-import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.util.ResourceLocation;
 
 public class OverpoweredItem extends Item {
 
-  public OverpoweredItem(final String name){
+  public OverpoweredItem(final ResourceLocation name){
     super(new Item.Properties().tab(CreativeTabs.creative_tab));
-    OverpoweredTechnology.registry.register_item(this, name);
+    setRegistryName(name);
   }
 
-  public OverpoweredItem(final String name, final ItemGroup tab){
+  public OverpoweredItem(final ResourceLocation name, final ItemGroup tab){
     super(new Item.Properties().tab(tab));
-    OverpoweredTechnology.registry.register_item(this, name);
+    setRegistryName(name);
   }
 
-  public OverpoweredItem(final String name, final Item.Properties properties){
+  public OverpoweredItem(final ResourceLocation name, final Item.Properties properties){
     super(properties);
-    OverpoweredTechnology.registry.register_item(this, name);
+    setRegistryName(name);
   }
 
 }

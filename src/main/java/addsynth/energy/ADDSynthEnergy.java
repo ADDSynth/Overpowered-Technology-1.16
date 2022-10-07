@@ -44,12 +44,10 @@ public class ADDSynthEnergy {
     
   public static final Logger log = LogManager.getLogger(MOD_NAME);
 
-  public static final RegistryUtil registry = new RegistryUtil(MOD_ID);
-
   public static final ItemGroup creative_tab = new ItemGroup("addsynth_energy"){
     @Override
     public final ItemStack makeIcon(){
-      return new ItemStack(registry.getItemBlock(EnergyBlocks.generator));
+      return new ItemStack(RegistryUtil.getItemBlock(EnergyBlocks.generator));
     }
   };
 

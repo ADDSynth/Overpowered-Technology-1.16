@@ -2,16 +2,16 @@ package addsynth.overpoweredmod.machines.fusion.converter;
 
 import java.util.List;
 import javax.annotation.Nullable;
+import addsynth.core.game.RegistryUtil;
 import addsynth.core.util.game.tileentity.TileEntityUtil;
 import addsynth.energy.lib.blocks.MachineBlock;
-import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.CreativeTabs;
+import addsynth.overpoweredmod.game.Names;
 import addsynth.overpoweredmod.machines.data_cable.DataCable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -22,9 +22,9 @@ import net.minecraft.world.World;
 
 public final class FusionEnergyConverterBlock extends MachineBlock {
 
-  public FusionEnergyConverterBlock(final String name){
+  public FusionEnergyConverterBlock(){
     super(MaterialColor.SNOW);
-    OverpoweredTechnology.registry.register_block(this, name, new Item.Properties().tab(CreativeTabs.creative_tab));
+    RegistryUtil.register_block(this, Names.FUSION_CONVERTER, CreativeTabs.creative_tab);
     DataCable.addAttachableBlock(this);
   }
 

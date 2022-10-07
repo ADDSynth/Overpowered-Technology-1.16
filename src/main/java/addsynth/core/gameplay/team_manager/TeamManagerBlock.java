@@ -1,7 +1,9 @@
 package addsynth.core.gameplay.team_manager;
 
 import addsynth.core.ADDSynthCore;
+import addsynth.core.game.RegistryUtil;
 import addsynth.core.gameplay.client.GuiProvider;
+import addsynth.core.gameplay.registers.Names;
 import addsynth.core.util.command.PermissionLevel;
 import addsynth.core.util.constants.Constants;
 import net.minecraft.block.Block;
@@ -10,7 +12,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -22,7 +23,7 @@ public final class TeamManagerBlock extends Block {
 
   public TeamManagerBlock(){
     super(Block.Properties.of(Material.STONE, MaterialColor.METAL).sound(SoundType.STONE).strength(2.0f, Constants.block_resistance));
-    ADDSynthCore.registry.register_block(this, "team_manager", new Item.Properties().tab(ADDSynthCore.creative_tab));
+    RegistryUtil.register_block(this, Names.TEAM_MANAGER, ADDSynthCore.creative_tab);
   }
 
   @Override

@@ -2,8 +2,10 @@ package addsynth.core.gameplay.music_box;
 
 import javax.annotation.Nullable;
 import addsynth.core.ADDSynthCore;
+import addsynth.core.game.RegistryUtil;
 import addsynth.core.gameplay.Core;
 import addsynth.core.gameplay.client.GuiProvider;
+import addsynth.core.gameplay.registers.Names;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.core.util.player.PlayerUtil;
 import net.minecraft.block.Block;
@@ -11,7 +13,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
@@ -23,9 +24,9 @@ import net.minecraft.world.World;
 
 public final class MusicBox extends Block {
 
-  public MusicBox(String name){
+  public MusicBox(){
     super(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(0.8f));
-    ADDSynthCore.registry.register_block(this, name, new Item.Properties().tab(ADDSynthCore.creative_tab));
+    RegistryUtil.register_block(this, Names.MUSIC_BOX, ADDSynthCore.creative_tab);
   }
 
   @Override

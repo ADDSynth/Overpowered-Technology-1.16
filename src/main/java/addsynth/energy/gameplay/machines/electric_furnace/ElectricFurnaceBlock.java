@@ -2,9 +2,11 @@ package addsynth.energy.gameplay.machines.electric_furnace;
 
 import java.util.List;
 import javax.annotation.Nullable;
+import addsynth.core.game.RegistryUtil;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.ADDSynthEnergy;
 import addsynth.energy.lib.blocks.MachineBlock;
+import addsynth.energy.registers.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -13,7 +15,6 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer.Builder;
@@ -33,9 +34,9 @@ public final class ElectricFurnaceBlock extends MachineBlock {
 
   public static final DirectionProperty FACING = HorizontalBlock.FACING;
 
-  public ElectricFurnaceBlock(final String name){
+  public ElectricFurnaceBlock(){
     super(MaterialColor.COLOR_LIGHT_GRAY);
-    ADDSynthEnergy.registry.register_block(this, name, new Item.Properties().tab(ADDSynthEnergy.creative_tab));
+    RegistryUtil.register_block(this, Names.ELECTRIC_FURNACE, ADDSynthEnergy.creative_tab);
     this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
   }
 

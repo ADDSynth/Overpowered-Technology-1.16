@@ -1,6 +1,7 @@
 package addsynth.overpoweredmod.compatability.jei;
 
 import addsynth.overpoweredmod.OverpoweredTechnology;
+import addsynth.overpoweredmod.game.Names;
 import addsynth.overpoweredmod.game.core.Machines;
 import addsynth.overpoweredmod.machines.inverter.InverterRecipe;
 import mezz.jei.api.constants.VanillaTypes;
@@ -15,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 
 public final class InverterCategory implements IRecipeCategory<InverterRecipe> {
 
-  public static final ResourceLocation id = new ResourceLocation(OverpoweredTechnology.MOD_ID, "inverter");
+  public static final ResourceLocation id = Names.INVERTER;
   private final ResourceLocation gui_texture = new ResourceLocation(OverpoweredTechnology.MOD_ID, "textures/gui/gui_textures.png");
   private final IDrawable background;
   private final IDrawable icon;

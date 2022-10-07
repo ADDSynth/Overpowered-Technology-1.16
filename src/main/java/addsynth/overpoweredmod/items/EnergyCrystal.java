@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.overpoweredmod.config.MachineValues;
+import addsynth.overpoweredmod.game.Names;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
@@ -13,8 +14,8 @@ import net.minecraft.world.World;
 
 public final class EnergyCrystal extends OverpoweredItem {
 
-  public EnergyCrystal(String name){
-    super(name);
+  public EnergyCrystal(){
+    super(Names.ENERGY_CRYSTAL);
   }
 
   @Override

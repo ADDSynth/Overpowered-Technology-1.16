@@ -1,5 +1,6 @@
 package addsynth.overpoweredmod.items;
 
+import addsynth.overpoweredmod.game.Names;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
@@ -7,8 +8,8 @@ import net.minecraft.util.text.TextFormatting;
 
 public final class PlasmaItem extends OverpoweredItem {
 
-  public PlasmaItem(final String name){
-    super(name);
+  public PlasmaItem(){
+    super(Names.PLASMA);
   }
 
   @Override

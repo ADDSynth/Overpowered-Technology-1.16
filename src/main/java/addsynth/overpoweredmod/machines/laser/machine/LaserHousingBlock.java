@@ -3,11 +3,13 @@ package addsynth.overpoweredmod.machines.laser.machine;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.core.block_network.BlockNetworkUtil;
+import addsynth.core.game.RegistryUtil;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.core.util.game.tileentity.TileEntityUtil;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.CreativeTabs;
+import addsynth.overpoweredmod.game.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.MaterialColor;
@@ -15,7 +17,6 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
@@ -30,9 +31,9 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public final class LaserHousingBlock extends MachineBlock {
 
-  public LaserHousingBlock(final String name){
+  public LaserHousingBlock(){
     super(MaterialColor.SNOW);
-    OverpoweredTechnology.registry.register_block(this, name, new Item.Properties().tab(CreativeTabs.creative_tab));
+    RegistryUtil.register_block(this, Names.LASER_HOUSING, CreativeTabs.creative_tab);
   }
 
   @Override

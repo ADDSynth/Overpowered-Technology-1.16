@@ -1,6 +1,7 @@
 package addsynth.overpoweredmod.items;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -11,7 +12,7 @@ public final class LensItem extends OverpoweredItem {
   private final TextFormatting color_code;
   // https://minecraft.gamepedia.com/Formatting_codes
 
-  public LensItem(final int index, final String name, final TextFormatting format_code){
+  public LensItem(final int index, final ResourceLocation name, final TextFormatting format_code){
     super(name);
     this.index = index;
     color_code = format_code;

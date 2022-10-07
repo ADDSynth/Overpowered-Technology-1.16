@@ -1,12 +1,13 @@
 package addsynth.material.blocks;
 
+import addsynth.core.game.RegistryUtil;
 import addsynth.core.util.math.random.RandomUtil;
 import addsynth.material.ADDSynthMaterials;
 import addsynth.material.MiningStrength;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.ToolType;
@@ -35,7 +36,7 @@ public class OreBlock extends Block {
   public OreBlock(final String name, final MiningStrength strength, int min_experience, int max_experience){
     super(Block.Properties.of(Material.STONE).strength(3.0f, 6.0f).harvestTool(ToolType.PICKAXE).harvestLevel(strength.ordinal()));
     // https://minecraft.gamepedia.com/Breaking#Blocks_by_hardness
-    ADDSynthMaterials.registry.register_block(this, name, new Item.Properties().tab(ADDSynthMaterials.creative_tab));
+    RegistryUtil.register_block(this, new ResourceLocation(ADDSynthMaterials.MOD_ID, name), ADDSynthMaterials.creative_tab);
     this.min_experience = min_experience;
     this.max_experience = max_experience;
   }
