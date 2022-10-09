@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 public final class AdvancedOreRefineryCategory  implements IRecipeCategory<OreRefineryRecipe> {
 
   public static final ResourceLocation id = Names.ADVANCED_ORE_REFINERY;
-  private final ResourceLocation gui_texture = new ResourceLocation(OverpoweredTechnology.MOD_ID, "textures/gui/gui_textures.png");
+  private static final ResourceLocation gui_texture = new ResourceLocation(OverpoweredTechnology.MOD_ID, "textures/gui/gui_textures.png");
   private final IDrawable background;
   private final IDrawable icon;
 

@@ -17,7 +17,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 public final class TileCrystalEnergyExtractor extends TileStandardGenerator implements INamedContainerProvider {
 
   public static final Item[] input_filter = new Item[] {
-    Init.energy_crystal_shards, Init.energy_crystal, Item.BY_BLOCK.get(Init.light_block) // MAYBE: Safer to use our RegistryUtil.getItemBlock?
+    Init.energy_crystal_shards, Init.energy_crystal, Item.BY_BLOCK.get(Init.light_block)
   };
 
   public TileCrystalEnergyExtractor(){

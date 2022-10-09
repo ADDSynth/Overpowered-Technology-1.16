@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 public final class CompressorRecipeCategory implements IRecipeCategory<CompressorRecipe> {
 
   public static final ResourceLocation id = Names.COMPRESSOR;
-  private final ResourceLocation compressor_gui_texture = new ResourceLocation(ADDSynthEnergy.MOD_ID, "textures/gui/gui_textures.png");
+  private static final ResourceLocation compressor_gui_texture = new ResourceLocation(ADDSynthEnergy.MOD_ID, "textures/gui/gui_textures.png");
   private final IDrawable background;
   private final IDrawable icon;
   // private final LoadingCache<CompressorRecipe, CompressorRecipeDisplayData> cached_display_data;

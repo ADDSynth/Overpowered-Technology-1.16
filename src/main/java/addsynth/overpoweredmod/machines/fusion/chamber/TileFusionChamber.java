@@ -23,6 +23,7 @@ import net.minecraft.world.Explosion;
 public final class TileFusionChamber extends TileStorageMachine implements INamedContainerProvider {
 
   public static final Item[] input_filter = new Item[]{ModItems.fusion_core};
+  private static final SlotData[] slot_data = {new SlotData(input_filter, 1)};
 
   /** A standard TNT explosion is size of 4. */
   private static final float FUSION_CHAMBER_EXPLOSION_SIZE = 10.0f;
@@ -31,7 +32,7 @@ public final class TileFusionChamber extends TileStorageMachine implements IName
   private boolean on;
 
   public TileFusionChamber(){
-    super(Tiles.FUSION_CHAMBER, new SlotData[]{new SlotData(input_filter,1)});
+    super(Tiles.FUSION_CHAMBER, slot_data);
   }
 
   public final boolean has_fusion_core(){

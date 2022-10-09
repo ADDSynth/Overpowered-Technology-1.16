@@ -45,15 +45,15 @@ public final class TeamDataUnit {
   
   public static final TeamDataUnit decode(final PacketBuffer data){
     final TeamDataUnit team = new TeamDataUnit();
-    team.name = NetworkUtil.readString(data);
-    team.display_name = new StringTextComponent(NetworkUtil.readString(data));
+    team.name = data.readUtf();
+    team.display_name = new StringTextComponent(data.readUtf());
     team.color = data.readByte();
     team.pvp = data.readBoolean();
     team.see_invisible_allys = data.readBoolean();
     team.nametag_option = data.readByte();
     team.death_message_option = data.readByte();
-    team.prefix = new StringTextComponent(NetworkUtil.readString(data));
-    team.suffix = new StringTextComponent(NetworkUtil.readString(data));
+    team.prefix = new StringTextComponent(data.readUtf());
+    team.suffix = new StringTextComponent(data.readUtf());
     team.players = new ArrayList<ITextComponent>();
     for(final ITextComponent t : NetworkUtil.readTextComponentArray(data)){
       team.players.add(t);

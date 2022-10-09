@@ -1,6 +1,5 @@
 package addsynth.core.gameplay.team_manager.data;
 
-import addsynth.core.util.network.NetworkUtil;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.scoreboard.ScoreCriteria;
 import net.minecraft.util.text.ITextComponent;
@@ -24,9 +23,9 @@ public final class ObjectiveDataUnit {
   
   public static final ObjectiveDataUnit decode(final PacketBuffer data){
     final ObjectiveDataUnit objective = new ObjectiveDataUnit();
-    objective.name = NetworkUtil.readString(data);
-    objective.display_name = new StringTextComponent(NetworkUtil.readString(data));
-    objective.criteria_name = NetworkUtil.readString(data);
+    objective.name = data.readUtf();
+    objective.display_name = new StringTextComponent(data.readUtf());
+    objective.criteria_name = data.readUtf();
     objective.criteria = TeamData.getCriteria(objective.criteria_name);
     objective.criteria_type = TeamData.getCriteriaType(objective.criteria_name);
     objective.modify = !objective.criteria.isReadOnly();
