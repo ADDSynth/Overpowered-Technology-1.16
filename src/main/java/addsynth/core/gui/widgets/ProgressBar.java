@@ -3,6 +3,7 @@ package addsynth.core.gui.widgets;
 import addsynth.core.util.math.RoundMode;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.util.math.MathHelper;
 
 public class ProgressBar {
 
@@ -27,8 +28,8 @@ public class ProgressBar {
   public void draw(MatrixStack matrix, ContainerScreen gui, Direction direction, float value, RoundMode round_mode){
     float texture_percentage = 0.0f;
     switch(direction){
-    case LEFT_TO_RIGHT: case RIGHT_TO_LEFT: texture_percentage = width  * value; break;
-    case BOTTOM_TO_TOP: case TOP_TO_BOTTOM: texture_percentage = height * value; break;
+    case LEFT_TO_RIGHT: case RIGHT_TO_LEFT: texture_percentage = width  * MathHelper.clamp(value, 0.0f, 1.0f); break;
+    case BOTTOM_TO_TOP: case TOP_TO_BOTTOM: texture_percentage = height * MathHelper.clamp(value, 0.0f, 1.0f); break;
     }
     int progress = 0;
     switch(round_mode){
