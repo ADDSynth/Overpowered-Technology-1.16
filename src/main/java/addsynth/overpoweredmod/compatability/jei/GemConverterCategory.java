@@ -1,5 +1,6 @@
 package addsynth.overpoweredmod.compatability.jei;
 
+import addsynth.core.util.StringUtil;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
@@ -37,8 +38,9 @@ public final class GemConverterCategory implements IRecipeCategory<GemConverterR
   }
 
   @Override
+  @Deprecated
   public String getTitle(){
-    return "Gem Converter";
+    return StringUtil.translate(OverpoweredBlocks.gem_converter.getDescriptionId());
   }
 
   @Override

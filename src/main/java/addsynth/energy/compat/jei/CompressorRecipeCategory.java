@@ -3,6 +3,7 @@ package addsynth.energy.compat.jei;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
+import addsynth.core.util.StringUtil;
 import addsynth.energy.ADDSynthEnergy;
 import addsynth.energy.gameplay.EnergyBlocks;
 import addsynth.energy.gameplay.machines.compressor.recipe.CompressorRecipe;
@@ -33,8 +34,9 @@ public final class CompressorRecipeCategory implements IRecipeCategory<Compresso
   }
 
   @Override
+  @Deprecated
   public String getTitle(){
-    return "Compressor";
+    return StringUtil.translate(EnergyBlocks.compressor.getDescriptionId());
   }
 
   @Override

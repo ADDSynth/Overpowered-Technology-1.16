@@ -1,5 +1,6 @@
 package addsynth.overpoweredmod.compatability.jei;
 
+import addsynth.core.util.StringUtil;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.game.reference.Names;
 import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
@@ -37,8 +38,9 @@ public final class InverterCategory implements IRecipeCategory<InverterRecipe> {
   }
 
   @Override
+  @Deprecated
   public String getTitle(){
-    return "Inverter";
+    return StringUtil.translate(OverpoweredBlocks.inverter.getDescriptionId());
   }
 
   @Override

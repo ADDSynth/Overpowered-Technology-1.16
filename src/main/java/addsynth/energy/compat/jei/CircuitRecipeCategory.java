@@ -1,5 +1,6 @@
 package addsynth.energy.compat.jei;
 
+import addsynth.core.util.StringUtil;
 import addsynth.energy.ADDSynthEnergy;
 import addsynth.energy.gameplay.EnergyBlocks;
 import addsynth.energy.gameplay.machines.circuit_fabricator.recipe.CircuitFabricatorRecipe;
@@ -40,8 +41,9 @@ public final class CircuitRecipeCategory implements IRecipeCategory<CircuitFabri
   }
 
   @Override
+  @Deprecated
   public String getTitle(){
-    return "Circuit Fabricator";
+    return StringUtil.translate(EnergyBlocks.circuit_fabricator.getDescriptionId());
   }
 
   @Override

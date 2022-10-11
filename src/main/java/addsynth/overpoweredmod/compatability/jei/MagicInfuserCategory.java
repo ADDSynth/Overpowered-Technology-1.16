@@ -38,6 +38,7 @@ public final class MagicInfuserCategory implements IRecipeCategory<MagicInfuserR
   }
 
   @Override
+  @Deprecated
   public String getTitle(){
     return new TranslationTextComponent("block.overpowered.magic_infuser").getString();
   }
