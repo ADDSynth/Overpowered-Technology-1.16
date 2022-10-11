@@ -1,6 +1,6 @@
 package addsynth.overpoweredmod.items;
 
-import addsynth.overpoweredmod.game.Names;
+import addsynth.overpoweredmod.game.reference.Names;
 import net.minecraft.item.ItemStack;
 
 public final class VoidCrystal extends OverpoweredItem {

@@ -1,6 +1,5 @@
 package addsynth.overpoweredmod.registers;
 
-import addsynth.overpoweredmod.Debug;
 import addsynth.overpoweredmod.machines.advanced_ore_refinery.ContainerOreRefinery;
 import addsynth.overpoweredmod.machines.crystal_matter_generator.ContainerCrystalGenerator;
 import addsynth.overpoweredmod.machines.energy_extractor.ContainerCrystalEnergyExtractor;
@@ -18,10 +17,6 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.fml.network.IContainerFactory;
 
 public final class Containers {
-
-  static {
-    Debug.log_setup_info(Containers.class.getName()+" class was loaded...");
-  }
 
   public static final ContainerType<ContainerCrystalEnergyExtractor> CRYSTAL_ENERGY_EXTRACTOR  =
     new ContainerType<>((IContainerFactory<ContainerCrystalEnergyExtractor>)ContainerCrystalEnergyExtractor::new);
@@ -61,9 +56,5 @@ public final class Containers {
 
   public static final ContainerType<ContainerPlasmaGenerator> PLASMA_GENERATOR =
     new ContainerType<>((IContainerFactory<ContainerPlasmaGenerator>)ContainerPlasmaGenerator::new);
-
-  static {
-    Debug.log_setup_info(Containers.class.getName()+" class finished loading.");
-  }
 
 }

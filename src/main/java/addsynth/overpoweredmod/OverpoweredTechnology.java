@@ -11,10 +11,8 @@ import addsynth.overpoweredmod.compatability.CompatabilityManager;
 import addsynth.overpoweredmod.config.*;
 import addsynth.overpoweredmod.game.NetworkHandler;
 import addsynth.overpoweredmod.game.OverpoweredSavedData;
-import addsynth.overpoweredmod.game.core.Init;
 import addsynth.overpoweredmod.game.core.Laser;
-import addsynth.overpoweredmod.game.core.Machines;
-import addsynth.overpoweredmod.game.core.Portal;
+import addsynth.overpoweredmod.game.reference.OverpoweredBlocks;
 import addsynth.overpoweredmod.machines.Filters;
 import addsynth.overpoweredmod.machines.advanced_ore_refinery.GuiAdvancedOreRefinery;
 import addsynth.overpoweredmod.machines.advanced_ore_refinery.OreRefineryRecipes;
@@ -148,8 +146,8 @@ public class OverpoweredTechnology {
 
   private static final void set_block_render_types(){
     final RenderType translucent = RenderType.translucent();
-    RenderTypeLookup.setRenderLayer(Init.null_block,    translucent);
-    RenderTypeLookup.setRenderLayer(Portal.portal,      translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.null_block,  translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.portal,      translucent);
     RenderTypeLookup.setRenderLayer(Laser.WHITE.beam,   translucent);
     RenderTypeLookup.setRenderLayer(Laser.RED.beam,     translucent);
     RenderTypeLookup.setRenderLayer(Laser.ORANGE.beam,  translucent);
@@ -158,15 +156,15 @@ public class OverpoweredTechnology {
     RenderTypeLookup.setRenderLayer(Laser.CYAN.beam,    translucent);
     RenderTypeLookup.setRenderLayer(Laser.BLUE.beam,    translucent);
     RenderTypeLookup.setRenderLayer(Laser.MAGENTA.beam, translucent);
-    RenderTypeLookup.setRenderLayer(Machines.white_energy_bridge,   translucent);
-    RenderTypeLookup.setRenderLayer(Machines.red_energy_bridge,     translucent);
-    RenderTypeLookup.setRenderLayer(Machines.orange_energy_bridge,  translucent);
-    RenderTypeLookup.setRenderLayer(Machines.yellow_energy_bridge,  translucent);
-    RenderTypeLookup.setRenderLayer(Machines.green_energy_bridge,   translucent);
-    RenderTypeLookup.setRenderLayer(Machines.cyan_energy_bridge,    translucent);
-    RenderTypeLookup.setRenderLayer(Machines.blue_energy_bridge,    translucent);
-    RenderTypeLookup.setRenderLayer(Machines.magenta_energy_bridge, translucent);
-    RenderTypeLookup.setRenderLayer(Machines.fusion_control_laser_beam, translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.white_energy_bridge,   translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.red_energy_bridge,     translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.orange_energy_bridge,  translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.yellow_energy_bridge,  translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.green_energy_bridge,   translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.cyan_energy_bridge,    translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.blue_energy_bridge,    translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.magenta_energy_bridge, translucent);
+    RenderTypeLookup.setRenderLayer(OverpoweredBlocks.fusion_control_laser_beam, translucent);
   }
 
   public static final void mod_config_event(final ModConfig.ModConfigEvent event){

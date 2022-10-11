@@ -1,10 +1,8 @@
 package addsynth.overpoweredmod.game;
 
 import addsynth.core.util.game.MessageUtil;
-import addsynth.overpoweredmod.Debug;
 import addsynth.overpoweredmod.OverpoweredTechnology;
-import addsynth.overpoweredmod.game.core.Init;
-import addsynth.overpoweredmod.game.core.Machines;
+import addsynth.overpoweredmod.game.reference.OverpoweredItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
@@ -22,15 +20,11 @@ import net.minecraftforge.event.entity.player.PlayerEvent.ItemPickupEvent;
 @Mod.EventBusSubscriber(modid = OverpoweredTechnology.MOD_ID)
 public final class Events {
 
-  static {
-    Debug.log_setup_info("Events class was loaded.");
-  }
-
   @SubscribeEvent
   public static final void pick_up_item(final ItemPickupEvent event){
     final Item item = event.getStack().getItem();
     final PlayerEntity player = event.getPlayer();
-    if(item == Init.void_crystal){
+    if(item == OverpoweredItems.void_crystal){
       /*
       if(player.dimension.getId() == WeirdDimension.id){
         final MinecraftServer server = player.getServer();

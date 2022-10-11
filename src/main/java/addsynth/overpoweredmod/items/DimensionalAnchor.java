@@ -4,8 +4,8 @@ import addsynth.core.compat.Compatibility;
 import addsynth.core.util.game.MessageUtil;
 import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.assets.CreativeTabs;
-import addsynth.overpoweredmod.game.Names;
-import addsynth.overpoweredmod.game.core.ModItems;
+import addsynth.overpoweredmod.game.reference.Names;
+import addsynth.overpoweredmod.game.reference.OverpoweredItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
@@ -26,11 +26,11 @@ public final class DimensionalAnchor extends OverpoweredItem {
 
   public static final boolean player_has_dimensional_anchor(final PlayerEntity player){
     if(Compatibility.CURIOS.loaded){
-      if(CuriosApi.getCuriosHelper().findFirstCurio(player, ModItems.dimensional_anchor).isPresent()){
+      if(CuriosApi.getCuriosHelper().findFirstCurio(player, OverpoweredItems.dimensional_anchor).isPresent()){
         return true;
       }
     }
-    return player.inventory.contains(new ItemStack(ModItems.dimensional_anchor));
+    return player.inventory.contains(new ItemStack(OverpoweredItems.dimensional_anchor));
   }
 
   /* Known dimensions:

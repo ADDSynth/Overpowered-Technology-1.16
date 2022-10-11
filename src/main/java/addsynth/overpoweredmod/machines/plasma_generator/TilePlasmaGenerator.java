@@ -5,7 +5,7 @@ import addsynth.core.game.inventory.IOutputInventory;
 import addsynth.core.game.inventory.OutputInventory;
 import addsynth.energy.lib.tiles.machines.TilePassiveMachine;
 import addsynth.overpoweredmod.config.MachineValues;
-import addsynth.overpoweredmod.game.core.ModItems;
+import addsynth.overpoweredmod.game.reference.OverpoweredItems;
 import addsynth.overpoweredmod.registers.Tiles;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -26,7 +26,7 @@ public final class TilePlasmaGenerator extends TilePassiveMachine implements IOu
 
   @Override
   protected final void perform_work(){
-    output_inventory.insertItem(0, new ItemStack(ModItems.plasma), false);
+    output_inventory.insertItem(0, new ItemStack(OverpoweredItems.plasma), false);
   }
 
   @Override

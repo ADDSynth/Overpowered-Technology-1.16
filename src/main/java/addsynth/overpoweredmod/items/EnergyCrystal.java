@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 import java.util.List;
 import javax.annotation.Nullable;
 import addsynth.overpoweredmod.config.MachineValues;
-import addsynth.overpoweredmod.game.Names;
+import addsynth.overpoweredmod.game.reference.Names;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
