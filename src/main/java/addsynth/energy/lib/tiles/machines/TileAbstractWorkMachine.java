@@ -21,7 +21,7 @@ public abstract class TileAbstractWorkMachine extends TileAbstractMachine implem
   protected MachineState state;
 
   public TileAbstractWorkMachine(final TileEntityType type, final MachineState initial_state, final MachineData data){
-    super(type, new Receiver(data.total_energy_needed, data.get_max_receive()));
+    super(type, new Receiver(data.get_total_energy_needed(), data.get_max_receive()));
     this.state = initial_state;
   }
 
