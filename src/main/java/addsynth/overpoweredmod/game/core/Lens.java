@@ -2,7 +2,7 @@ package addsynth.overpoweredmod.game.core;
 
 import addsynth.core.game.items.ItemUtil;
 import addsynth.overpoweredmod.game.reference.Names;
-import addsynth.overpoweredmod.items.LensItem;
+import addsynth.overpoweredmod.items.basic.LensItem;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

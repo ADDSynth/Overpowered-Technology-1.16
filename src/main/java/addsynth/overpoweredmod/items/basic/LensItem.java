@@ -1,5 +1,6 @@
-package addsynth.overpoweredmod.items;
+package addsynth.overpoweredmod.items.basic;
 
+import addsynth.overpoweredmod.items.OverpoweredItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.IFormattableTextComponent;
