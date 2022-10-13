@@ -47,7 +47,7 @@ public class ADDSynthEnergy {
   public static final ItemGroup creative_tab = new ItemGroup("addsynth_energy"){
     @Override
     public final ItemStack makeIcon(){
-      return new ItemStack(RegistryUtil.getItemBlock(EnergyBlocks.generator));
+      return new ItemStack(RegistryUtil.getItemBlock(EnergyBlocks.wire));
     }
   };
 
