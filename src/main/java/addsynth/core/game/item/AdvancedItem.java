@@ -1,4 +1,4 @@
-package addsynth.core.game.items;
+package addsynth.core.game.item;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

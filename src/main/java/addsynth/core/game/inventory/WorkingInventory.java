@@ -1,7 +1,7 @@
 package addsynth.core.game.inventory;
 
 import javax.annotation.Nonnull;
-import addsynth.core.game.items.ItemUtil;
+import addsynth.core.game.item.ItemUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 

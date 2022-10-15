@@ -1,4 +1,4 @@
-package addsynth.core.game.items;
+package addsynth.core.game.item.constants;
 
 import net.minecraft.item.Rarity;
 import net.minecraft.util.text.TextFormatting;
