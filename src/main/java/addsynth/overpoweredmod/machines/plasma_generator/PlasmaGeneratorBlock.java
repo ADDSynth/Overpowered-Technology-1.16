@@ -7,14 +7,20 @@ import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.lib.blocks.MachineBlock;
 import addsynth.overpoweredmod.assets.CreativeTabs;
 import addsynth.overpoweredmod.game.reference.Names;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -26,9 +32,12 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public final class PlasmaGeneratorBlock extends MachineBlock {
 
+  public static final DirectionProperty FACING = HorizontalBlock.FACING;
+
   public PlasmaGeneratorBlock(){
     super(MaterialColor.WOOL);
     RegistryUtil.register_block(this, Names.PLASMA_GENERATOR, CreativeTabs.creative_tab);
+    this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
   }
 
   @Override
@@ -52,6 +61,17 @@ public final class PlasmaGeneratorBlock extends MachineBlock {
       }
     }
     return ActionResultType.SUCCESS;
+  }
+
+  @Override
+  @Nullable
+  public BlockState getStateForPlacement(BlockItemUseContext context){
+    return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+  }
+
+  @Override
+  protected void createBlockStateDefinition(Builder<Block, BlockState> builder){
+    builder.add(FACING);
   }
 
 }
