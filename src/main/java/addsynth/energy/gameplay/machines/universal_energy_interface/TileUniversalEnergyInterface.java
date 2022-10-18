@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import addsynth.core.util.java.ArrayUtil;
 import addsynth.energy.compat.energy.EnergyCompat;
 import addsynth.energy.compat.energy.forge.ForgeEnergyIntermediary;
-import addsynth.energy.gameplay.Config;
+import addsynth.energy.gameplay.config.Config;
 import addsynth.energy.lib.energy_network.tiles.BasicEnergyNetworkTile;
 import addsynth.energy.lib.main.Energy;
 import addsynth.energy.lib.main.ICustomEnergyUser;
