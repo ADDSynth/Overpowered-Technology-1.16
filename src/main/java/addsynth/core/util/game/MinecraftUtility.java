@@ -1,12 +1,9 @@
 package addsynth.core.util.game;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import addsynth.core.ADDSynthCore;
 import addsynth.core.util.StringUtil;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.crash.CrashReport;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -63,16 +60,6 @@ public final class MinecraftUtility {
       }
     }
     return null;
-  }
-
-  /** DO NOT INTENTIONALLY CRASH THE GAME!
-   *  Whenever possible, always use a <code>try/catch</code> block to check for Exceptions and handle them!
-   *  Only use this in a development environment for debug purposes. */
-  public static final void crash(final String context, @Nonnull final Throwable exception){
-    final CrashReport crash_report = new CrashReport(context, exception);
-    Minecraft.getInstance().delayCrash(crash_report); // REMOVE: this. I don't think I need it.
-    Minecraft.crash(crash_report);
-    // FMLCommonHandler.exitJava();
   }
 
 }
