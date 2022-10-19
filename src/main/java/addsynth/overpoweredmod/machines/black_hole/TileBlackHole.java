@@ -27,7 +27,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
-import net.minecraftforge.common.world.ForgeWorldType;
 
 public final class TileBlackHole extends TileEntity implements ITickableTileEntity {
 
@@ -132,14 +131,12 @@ public final class TileBlackHole extends TileEntity implements ITickableTileEnti
       //       try to destroy itself, spawning hundreds of particle effects.
       return false;
     }
-    /* TODO: Do dimensions not have int IDs anymore? How do we specify a dimension blacklist now?
-    final int dimension_id = world.dimensionType().getId();
-    for(int id_check : Config.black_hole_dimension_blacklist.get()){
-      if(dimension_id == id_check){
+    final String location = world.dimension().location().toString();
+    for(String dimension : Config.black_hole_dimension_blacklist.get()){
+      if(dimension.equals(location)){
         return false;
       }
     }
-    */
     return true;
   }
 
