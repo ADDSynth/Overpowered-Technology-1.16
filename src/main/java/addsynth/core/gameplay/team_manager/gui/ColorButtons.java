@@ -1,16 +1,13 @@
 package addsynth.core.gameplay.team_manager.gui;
 
 import java.util.function.Consumer;
-import addsynth.core.ADDSynthCore;
+import addsynth.core.gameplay.reference.GuiReference;
 import addsynth.core.gui.widgets.WidgetUtil;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.gui.widget.button.AbstractButton;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.StringTextComponent;
 
 public final class ColorButtons extends AbstractButton {
-
-  private static final ResourceLocation color_buttons = new ResourceLocation(ADDSynthCore.MOD_ID, "textures/gui/color_buttons.png");
 
   public static final int button_gui_size = 16;
   private static final int gui_width = button_gui_size * 8;
@@ -45,7 +42,7 @@ public final class ColorButtons extends AbstractButton {
 
   @Override
   public void renderButton(MatrixStack matrix, int p_renderButton_1_, int p_renderButton_2_, float p_renderButton_3_){
-    WidgetUtil.common_button_render_setup(color_buttons);
+    WidgetUtil.common_button_render_setup(GuiReference.color_buttons);
     render_x = color % 8;
     render_y = color / 8;
     for(j = 0; j < 2; j++){

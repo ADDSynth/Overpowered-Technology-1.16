@@ -1,7 +1,7 @@
 package addsynth.core.gameplay.team_manager.gui;
 
-import addsynth.core.ADDSynthCore;
 import addsynth.core.gameplay.NetworkHandler;
+import addsynth.core.gameplay.reference.GuiReference;
 import addsynth.core.gameplay.team_manager.data.CriteriaData;
 import addsynth.core.gameplay.team_manager.data.CriteriaType;
 import addsynth.core.gameplay.team_manager.data.ObjectiveDataUnit;
@@ -17,18 +17,15 @@ import addsynth.core.gui.widgets.scrollbar.TextScrollbar;
 import addsynth.core.util.StringUtil;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
 public final class TeamManagerObjectiveGui extends GuiBase {
 
-  private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(ADDSynthCore.MOD_ID, "textures/gui/team_manager_objective_edit.png");
-
   private final boolean new_objective;
 
   public TeamManagerObjectiveGui(boolean new_objective){
-    super(473, 314, new TranslationTextComponent("gui.addsynthcore.team_manager.objective_edit.gui_title"), GUI_TEXTURE);
+    super(473, 314, new TranslationTextComponent("gui.addsynthcore.team_manager.objective_edit.gui_title"), GuiReference.edit_objective_gui);
     this.new_objective = new_objective;
   }
 

@@ -1,10 +1,10 @@
 package addsynth.energy.compat.jei;
 
 import addsynth.core.util.StringUtil;
-import addsynth.energy.ADDSynthEnergy;
 import addsynth.energy.gameplay.EnergyBlocks;
 import addsynth.energy.gameplay.machines.circuit_fabricator.recipe.CircuitFabricatorRecipe;
-import addsynth.energy.registers.Names;
+import addsynth.energy.gameplay.reference.GuiReference;
+import addsynth.energy.gameplay.reference.Names;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import mezz.jei.api.constants.VanillaTypes;
@@ -19,12 +19,11 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 public final class CircuitRecipeCategory implements IRecipeCategory<CircuitFabricatorRecipe> {
 
   public static final ResourceLocation id = Names.CIRCUIT_FABRICATOR;
-  private static final ResourceLocation gui_texture = new ResourceLocation(ADDSynthEnergy.MOD_ID, "textures/gui/circuit_fabricator.png");
   private final IDrawable background;
   private final IDrawable icon;
 
   public CircuitRecipeCategory(final IGuiHelper gui_helper){
-    final IDrawableBuilder drawable_builder = gui_helper.drawableBuilder(gui_texture, 153, 67, 140, 54);
+    final IDrawableBuilder drawable_builder = gui_helper.drawableBuilder(GuiReference.circuit_fabricator, 153, 67, 140, 54);
     drawable_builder.setTextureSize(384, 256);
     background = drawable_builder.build();
     icon = gui_helper.createDrawableIngredient(new ItemStack(EnergyBlocks.circuit_fabricator));

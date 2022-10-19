@@ -3,22 +3,19 @@ package addsynth.overpoweredmod.machines.identifier;
 import addsynth.core.gui.util.GuiUtil;
 import addsynth.energy.lib.gui.GuiEnergyBase;
 import addsynth.energy.lib.gui.widgets.WorkProgressBar;
-import addsynth.overpoweredmod.OverpoweredTechnology;
+import addsynth.overpoweredmod.game.reference.GuiReference;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public final class GuiIdentifier extends GuiEnergyBase<TileIdentifier, ContainerIdentifier> {
-
-  private static final ResourceLocation identifier_gui_texture = new ResourceLocation(OverpoweredTechnology.MOD_ID,"textures/gui/identifier.png");
 
   private static final int work_percentage_y = 63;
 
   private final WorkProgressBar work_progress_bar = new WorkProgressBar(8, 75, 160, 5, 11, 184);
 
   public GuiIdentifier(final ContainerIdentifier container, final PlayerInventory player_inventory, final ITextComponent title){
-    super(176, 169, container, player_inventory, title, identifier_gui_texture);
+    super(176, 169, container, player_inventory, title, GuiReference.identifier);
   }
 
   @Override

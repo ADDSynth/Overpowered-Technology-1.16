@@ -1,7 +1,7 @@
 package addsynth.core.gameplay.team_manager.gui;
 
-import addsynth.core.ADDSynthCore;
 import addsynth.core.gameplay.NetworkHandler;
+import addsynth.core.gameplay.reference.GuiReference;
 import addsynth.core.gameplay.team_manager.network_messages.TeamManagerCommand;
 import addsynth.core.gui.widgets.WidgetUtil;
 import addsynth.core.gui.widgets.buttons.AdjustableButton;
@@ -9,12 +9,10 @@ import addsynth.core.util.StringUtil;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.widget.button.AbstractButton;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.StringTextComponent;
 
 public final class TeamManagerGuiButtons {
 
-  private static final ResourceLocation gui_widgets = new ResourceLocation(ADDSynthCore.MOD_ID, "textures/gui/gui_textures.png");
   private static final Minecraft minecraft = Minecraft.getInstance();
   public final static int player_button_size = 20;
 
@@ -63,7 +61,7 @@ public final class TeamManagerGuiButtons {
 
     @Override
     public final void renderButton(MatrixStack matrix, int mouse_x, int mouse_y, float partial_ticks){
-      WidgetUtil.renderButton(matrix, this, gui_widgets, texture_x, isHovered ? texture_y + player_button_size : texture_y, player_button_size, player_button_size);
+      WidgetUtil.renderButton(matrix, this, GuiReference.widgets, texture_x, isHovered ? texture_y + player_button_size : texture_y, player_button_size, player_button_size);
     }
 
     @Override
@@ -87,7 +85,7 @@ public final class TeamManagerGuiButtons {
 
     @Override
     public final void renderButton(MatrixStack matrix, int mouse_x, int mouse_y, float partial_ticks){
-      WidgetUtil.renderButton(matrix, this, gui_widgets, texture_x, isHovered ? texture_y + player_button_size : texture_y, player_button_size, player_button_size);
+      WidgetUtil.renderButton(matrix, this, GuiReference.widgets, texture_x, isHovered ? texture_y + player_button_size : texture_y, player_button_size, player_button_size);
     }
 
     @Override

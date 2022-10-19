@@ -10,19 +10,15 @@ import addsynth.energy.lib.gui.widgets.OnOffSwitch;
 import addsynth.energy.lib.gui.widgets.WorkProgressBar;
 import addsynth.material.MaterialTag;
 import addsynth.material.MaterialsUtil;
-import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.game.NetworkHandler;
+import addsynth.overpoweredmod.game.reference.GuiReference;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public final class GuiPortalControlPanel extends GuiEnergyBase<TilePortalControlPanel, ContainerPortalControlPanel> {
-
-  private static final ResourceLocation portal_control_panel_gui_texture =
-    new ResourceLocation(OverpoweredTechnology.MOD_ID,"textures/gui/portal_control_panel.png");
 
   private static final IngredientWidgetGroup gem_blocks = new IngredientWidgetGroup(8);
 
@@ -34,7 +30,6 @@ public final class GuiPortalControlPanel extends GuiEnergyBase<TilePortalControl
 
   private final EnergyProgressBar energy_bar = new EnergyProgressBar(193, 59, 17, 64, 227, 24);
 
-  private static final ResourceLocation gui_icons = new ResourceLocation(OverpoweredTechnology.MOD_ID,"textures/gui/gui_textures.png");
   private static final int image_x = 14;
   private static final int image_y = 71;
   private static final int space_x = 44;
@@ -48,7 +43,7 @@ public final class GuiPortalControlPanel extends GuiEnergyBase<TilePortalControl
   private static final int status_message_y = button_y + button_height + 6;
 
   public GuiPortalControlPanel(final ContainerPortalControlPanel container, final PlayerInventory player_inventory, final ITextComponent title){
-    super(218, 146, container, player_inventory, title, portal_control_panel_gui_texture);
+    super(218, 146, container, player_inventory, title, GuiReference.portal_control_panel);
   }
 
   private static final class GeneratePortalButton extends AdjustableButton {
@@ -137,7 +132,7 @@ public final class GuiPortalControlPanel extends GuiEnergyBase<TilePortalControl
         gem_blocks.drawIngredient(index, x, y);
       }
     }
-    minecraft.getTextureManager().bind(gui_icons);
+    minecraft.getTextureManager().bind(GuiReference.icons);
     for(j = 0; j < 2; j++){
       for(i = 0; i < 4; i++){
         index = (j*4) + i;

@@ -5,6 +5,7 @@ import addsynth.core.config.Features;
 import addsynth.core.game.RegistryUtil;
 import addsynth.core.gameplay.Core;
 import addsynth.core.gameplay.Trophy;
+import addsynth.core.gameplay.reference.Names;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;

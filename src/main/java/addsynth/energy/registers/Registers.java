@@ -7,6 +7,7 @@ import addsynth.energy.gameplay.EnergyItems;
 import addsynth.energy.gameplay.config.Config;
 import addsynth.energy.gameplay.machines.circuit_fabricator.recipe.CircuitFabricatorRecipes;
 import addsynth.energy.gameplay.machines.compressor.recipe.CompressorRecipes;
+import addsynth.energy.gameplay.reference.Names;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;

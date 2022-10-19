@@ -5,7 +5,7 @@ import addsynth.core.ADDSynthCore;
 import addsynth.core.game.RegistryUtil;
 import addsynth.core.gameplay.Core;
 import addsynth.core.gameplay.client.GuiProvider;
-import addsynth.core.gameplay.registers.Names;
+import addsynth.core.gameplay.reference.Names;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.core.util.player.PlayerUtil;
 import net.minecraft.block.Block;

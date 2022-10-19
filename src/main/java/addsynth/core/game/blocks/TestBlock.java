@@ -2,7 +2,7 @@ package addsynth.core.game.blocks;
 
 import addsynth.core.ADDSynthCore;
 import addsynth.core.game.RegistryUtil;
-import addsynth.core.gameplay.registers.Names;
+import addsynth.core.gameplay.reference.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;

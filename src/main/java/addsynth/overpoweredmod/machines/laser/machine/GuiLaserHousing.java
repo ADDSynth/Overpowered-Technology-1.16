@@ -6,14 +6,13 @@ import addsynth.energy.lib.gui.GuiEnergyBase;
 import addsynth.energy.lib.gui.widgets.AutoShutoffCheckbox;
 import addsynth.energy.lib.gui.widgets.EnergyProgressBar;
 import addsynth.energy.lib.gui.widgets.OnOffSwitch;
-import addsynth.overpoweredmod.OverpoweredTechnology;
 import addsynth.overpoweredmod.game.NetworkHandler;
+import addsynth.overpoweredmod.game.reference.GuiReference;
 import addsynth.overpoweredmod.machines.laser.network_messages.SetLaserDistanceMessage;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
@@ -22,9 +21,6 @@ public final class GuiLaserHousing extends GuiEnergyBase<TileLaserHousing, Conta
   // TODO: The Laser machine also doesn't have any item slots in its inventory. It can derive from a Non-container
   //       GuiEnergyBase, but that means that I need to extract all the common helper functions from GuiEnergyBase
   //       into a GuiEnergyUtil. I can have that extend GuiUtil, then pass that as a reference through the Gui constructors.
-
-  private static final ResourceLocation laser_machine_gui_texture =
-    new ResourceLocation(OverpoweredTechnology.MOD_ID,"textures/gui/laser_machine.png");
 
   private final String required_energy_text = StringUtil.translate("gui.overpowered.laser_housing.required_energy");
   private final String current_energy_text  = StringUtil.translate("gui.overpowered.laser_housing.current_energy");
@@ -52,7 +48,7 @@ public final class GuiLaserHousing extends GuiEnergyBase<TileLaserHousing, Conta
   private static final int check_box_y = 19;
 
   public GuiLaserHousing(final ContainerLaserHousing container, final PlayerInventory player_inventory, final ITextComponent title){
-    super(208, gui_height, container, player_inventory, title, laser_machine_gui_texture);
+    super(208, gui_height, container, player_inventory, title, GuiReference.laser_machine);
   }
 
   private static final class LaserDistanceTextField extends TextFieldWidget {

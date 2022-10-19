@@ -4,10 +4,10 @@ import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
 import mezz.jei.api.helpers.IGuiHelper;
 import addsynth.core.util.StringUtil;
-import addsynth.energy.ADDSynthEnergy;
 import addsynth.energy.gameplay.EnergyBlocks;
 import addsynth.energy.gameplay.machines.compressor.recipe.CompressorRecipe;
-import addsynth.energy.registers.Names;
+import addsynth.energy.gameplay.reference.GuiReference;
+import addsynth.energy.gameplay.reference.Names;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
@@ -18,13 +18,12 @@ import net.minecraft.util.ResourceLocation;
 public final class CompressorRecipeCategory implements IRecipeCategory<CompressorRecipe> {
 
   public static final ResourceLocation id = Names.COMPRESSOR;
-  private static final ResourceLocation compressor_gui_texture = new ResourceLocation(ADDSynthEnergy.MOD_ID, "textures/gui/gui_textures.png");
   private final IDrawable background;
   private final IDrawable icon;
   // private final LoadingCache<CompressorRecipe, CompressorRecipeDisplayData> cached_display_data;
 
   public CompressorRecipeCategory(final IGuiHelper gui_helper){
-    background = gui_helper.createDrawable(compressor_gui_texture, 130, 0, 73, 18);
+    background = gui_helper.createDrawable(GuiReference.widgets, 130, 0, 73, 18);
     icon = gui_helper.createDrawableIngredient(new ItemStack(EnergyBlocks.compressor));
   }
 

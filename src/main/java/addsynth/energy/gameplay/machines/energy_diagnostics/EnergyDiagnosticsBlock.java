@@ -5,7 +5,7 @@ import addsynth.core.game.RegistryUtil;
 import addsynth.core.util.game.MinecraftUtility;
 import addsynth.energy.ADDSynthEnergy;
 import addsynth.energy.gameplay.client.GuiProvider;
-import addsynth.energy.registers.Names;
+import addsynth.energy.gameplay.reference.Names;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;

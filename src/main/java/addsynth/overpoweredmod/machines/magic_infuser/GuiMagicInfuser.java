@@ -4,22 +4,19 @@ import addsynth.core.gui.util.GuiUtil;
 import addsynth.energy.lib.gui.GuiEnergyBase;
 import addsynth.energy.lib.gui.widgets.WorkProgressBar;
 import addsynth.overpoweredmod.OverpoweredTechnology;
+import addsynth.overpoweredmod.game.reference.GuiReference;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public final class GuiMagicInfuser extends GuiEnergyBase<TileMagicInfuser, ContainerMagicInfuser> {
-
-  private static final ResourceLocation magic_infuser_gui_texture =
-    new ResourceLocation(OverpoweredTechnology.MOD_ID,"textures/gui/magic_infuser.png");
 
   private static final int work_percentage_text_y = 72;
 
   private final WorkProgressBar work_progress_bar = new WorkProgressBar(8, 84, 160, 5, 8, 194);
   
   public GuiMagicInfuser(final ContainerMagicInfuser container, final PlayerInventory player_inventory, final ITextComponent title){
-    super(176, 187, container, player_inventory, title, magic_infuser_gui_texture);
+    super(176, 187, container, player_inventory, title, GuiReference.magic_infuser);
   }
 
   @Override

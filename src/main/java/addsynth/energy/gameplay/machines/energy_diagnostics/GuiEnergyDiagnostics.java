@@ -4,17 +4,13 @@ import addsynth.core.gui.GuiBase;
 import addsynth.core.gui.util.GuiSection;
 import addsynth.core.gui.util.GuiUtil;
 import addsynth.core.util.StringUtil;
-import addsynth.energy.ADDSynthEnergy;
+import addsynth.energy.gameplay.reference.GuiReference;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.gui.widget.button.AbstractButton;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 public final class GuiEnergyDiagnostics extends GuiBase {
-
-  private static final ResourceLocation gui_texture = new ResourceLocation(ADDSynthEnergy.MOD_ID, "textures/gui/energy_diagnostics.png");
-  private static final ResourceLocation gui_widgets = new ResourceLocation(ADDSynthEnergy.MOD_ID, "textures/gui/gui_textures.png");
 
   private final TileEnergyDiagnostics tile;
   private static int draw_i;
@@ -39,7 +35,7 @@ public final class GuiEnergyDiagnostics extends GuiBase {
   private static final GuiSection transfer_column = GuiSection.dimensions(565, text_y,  60, 282);
 
   public GuiEnergyDiagnostics(final TileEnergyDiagnostics tile, final ITextComponent title){
-    super(631, 288, title, gui_texture);
+    super(631, 288, title, GuiReference.energy_diagnostics);
     this.tile = tile;
   }
 

@@ -4,21 +4,17 @@ import addsynth.core.gui.util.GuiUtil;
 import addsynth.energy.lib.gui.GuiEnergyBase;
 import addsynth.energy.lib.gui.widgets.OnOffSwitch;
 import addsynth.energy.lib.gui.widgets.WorkProgressBar;
-import addsynth.overpoweredmod.OverpoweredTechnology;
+import addsynth.overpoweredmod.game.reference.GuiReference;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public final class GuiPlasmaGenerator extends GuiEnergyBase<TilePlasmaGenerator, ContainerPlasmaGenerator> {
 
-  private static final ResourceLocation crystal_matter_generator_gui_texture =
-    new ResourceLocation(OverpoweredTechnology.MOD_ID,"textures/gui/plasma_generator.png");
-
   private final WorkProgressBar work_progress_bar = new WorkProgressBar(8, 73, 166, 5, 7, 184);
   
   public GuiPlasmaGenerator(final ContainerPlasmaGenerator container, final PlayerInventory player_inventory, final ITextComponent title){
-    super(183, 176, container, player_inventory, title, crystal_matter_generator_gui_texture);
+    super(183, 176, container, player_inventory, title, GuiReference.plasma_generator);
   }
 
   @Override

@@ -4,15 +4,13 @@ import addsynth.core.gui.util.GuiUtil;
 import addsynth.core.util.StringUtil;
 import addsynth.energy.lib.gui.GuiEnergyBase;
 import addsynth.energy.lib.gui.widgets.EnergyProgressBar;
-import addsynth.overpoweredmod.OverpoweredTechnology;
+import addsynth.overpoweredmod.game.reference.GuiReference;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public final class GuiCrystalEnergyExtractor extends GuiEnergyBase<TileCrystalEnergyExtractor, ContainerCrystalEnergyExtractor> {
 
-  private static final ResourceLocation gui_texture = new ResourceLocation(OverpoweredTechnology.MOD_ID, "textures/gui/crystal_energy_extractor.png");
   private final String input_text   = StringUtil.translate("gui.overpowered.crystal_energy_generator.input");
   private final EnergyProgressBar energy_progress_bar = new EnergyProgressBar(8, 80, 168, 20, 8, 194);
 
@@ -24,7 +22,7 @@ public final class GuiCrystalEnergyExtractor extends GuiEnergyBase<TileCrystalEn
   private static final int line_3 = 68;
 
   public GuiCrystalEnergyExtractor(final ContainerCrystalEnergyExtractor container, final PlayerInventory player_inventory, final ITextComponent title){
-    super(184, 188, container, player_inventory, title, gui_texture);
+    super(184, 188, container, player_inventory, title, GuiReference.crystal_energy_extractor);
   }
 
   @Override

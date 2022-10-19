@@ -1,7 +1,7 @@
 package addsynth.energy.gameplay;
 
 import addsynth.energy.ADDSynthEnergy;
-import addsynth.energy.registers.Names;
+import addsynth.energy.gameplay.reference.Names;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
