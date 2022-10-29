@@ -1,17 +1,33 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "platinum_plate": {
+    "scanning_laser": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:plates/platinum"
+            "item": "overpowered:scanning_laser"
           }
         ]
       }
     },
-    "matter_energy_transformer": {
+    "matter_energy_converter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "overpowered:matter_energy_converter"
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "overpowered:matter_energy_transformer"
+      }
+    },
+    "has_matter_energy_transformer": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -20,46 +36,19 @@
           }
         ]
       }
-    },
-    "nullified_power_core": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "overpowered:nullified_power_core"
-          }
-        ]
-      }
-    },
-    "has_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "overpowered:crystal_matter_generator"
-      }
-    },
-    "has_machine": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "overpowered:crystal_matter_generator"
-          }
-        ]
-      }
     }
   },
   "requirements": [
     [
-      "platinum_plate",
-      "matter_energy_transformer",
-      "nullified_power_core",
+      "scanning_laser",
+      "matter_energy_converter",
       "has_recipe",
-      "has_machine"
+      "has_matter_energy_transformer"
     ]
   ],
   "rewards": {
     "recipes": [
-      "overpowered:crystal_matter_generator"
+      "overpowered:matter_energy_transformer"
     ]
   }
 }

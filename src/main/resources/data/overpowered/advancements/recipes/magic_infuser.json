@@ -11,6 +11,16 @@
         ]
       }
     },
+    "matter_energy_transformer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "overpowered:matter_energy_transformer"
+          }
+        ]
+      }
+    },
     "energy_crystal": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -61,6 +71,7 @@
   "requirements": [
     [
       "bookshelf",
+      "matter_energy_transformer",
       "energy_crystal",
       "aluminum_plate",
       "circuit",

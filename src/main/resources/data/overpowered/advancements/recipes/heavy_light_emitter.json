@@ -1,32 +1,22 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "platinum_plate": {
+    "beam_emitter": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:plates/platinum"
+            "item": "overpowered:beam_emitter"
           }
         ]
       }
     },
-    "matter_energy_transformer": {
+    "matter_energy_converter": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:matter_energy_transformer"
-          }
-        ]
-      }
-    },
-    "nullified_power_core": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "overpowered:nullified_power_core"
+            "item": "overpowered:matter_energy_converter"
           }
         ]
       }
@@ -34,15 +24,15 @@
     "has_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "overpowered:crystal_matter_generator"
+        "recipe": "overpowered:heavy_light_emitter"
       }
     },
-    "has_machine": {
+    "has_heavy_light_emitter": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:crystal_matter_generator"
+            "item": "overpowered:heavy_light_emitter"
           }
         ]
       }
@@ -50,16 +40,15 @@
   },
   "requirements": [
     [
-      "platinum_plate",
-      "matter_energy_transformer",
-      "nullified_power_core",
+      "beam_emitter",
+      "matter_energy_converter",
       "has_recipe",
-      "has_machine"
+      "has_heavy_light_emitter"
     ]
   ],
   "rewards": {
     "recipes": [
-      "overpowered:crystal_matter_generator"
+      "overpowered:heavy_light_emitter"
     ]
   }
 }

@@ -1,7 +1,33 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "dimensional_flux": {
+    "fusion_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "overpowered:fusion_core"
+          }
+        ]
+      }
+    },
+    "void_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "overpowered:void_crystal"
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "overpowered:dimensional_flux"
+      }
+    },
+    "has_dimensional_flux": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -10,34 +36,19 @@
           }
         ]
       }
-    },
-    "has_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "overpowered:black_hole"
-      }
-    },
-    "has_black_hole": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "overpowered:black_hole"
-          }
-        ]
-      }
     }
   },
   "requirements": [
     [
-      "dimensional_flux",
+      "fusion_core",
+      "void_crystal",
       "has_recipe",
-      "has_black_hole"
+      "has_dimensional_flux"
     ]
   ],
   "rewards": {
     "recipes": [
-      "overpowered:black_hole"
+      "overpowered:dimensional_flux"
     ]
   }
 }

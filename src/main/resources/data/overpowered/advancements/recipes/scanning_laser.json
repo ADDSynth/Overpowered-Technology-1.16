@@ -1,12 +1,22 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "dimensional_flux": {
+    "beam_emitter": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:dimensional_flux"
+            "item": "overpowered:beam_emitter"
+          }
+        ]
+      }
+    },
+    "circuit_tier_2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "addsynth_energy:circuit_tier_2"
           }
         ]
       }
@@ -14,15 +24,15 @@
     "has_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "overpowered:black_hole"
+        "recipe": "overpowered:scanning_laser"
       }
     },
-    "has_black_hole": {
+    "has_scanning_laser": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:black_hole"
+            "item": "overpowered:scanning_laser"
           }
         ]
       }
@@ -30,14 +40,15 @@
   },
   "requirements": [
     [
-      "dimensional_flux",
+      "beam_emitter",
+      "circuit_tier_2",
       "has_recipe",
-      "has_black_hole"
+      "has_scanning_laser"
     ]
   ],
   "rewards": {
     "recipes": [
-      "overpowered:black_hole"
+      "overpowered:scanning_laser"
     ]
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "beam_emitter": {
+    "destructive_laser": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:beam_emitter"
+            "item": "overpowered:destructive_laser"
           }
         ]
       }
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "beam_emitter",
+      "destructive_laser",
       "focus_lens",
       "laser_housing"
     ]

@@ -1,42 +1,42 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "silver_plate": {
+    "titanium_plate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:plates/silver"
+            "tag": "forge:plates/titanium"
           }
         ]
       }
     },
-    "matter_energy_transformer": {
+    "reinforced_container": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:matter_energy_transformer"
+            "item": "overpowered:reinforced_container"
           }
         ]
       }
     },
-    "circuit": {
+    "circuit_tier_9": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "addsynth_energy:circuit_tier_8"
+            "item": "addsynth_energy:circuit_tier_9"
           }
         ]
       }
     },
-    "energized_power_core": {
+    "nullified_power_core": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:energized_power_core"
+            "item": "overpowered:nullified_power_core"
           }
         ]
       }
@@ -44,25 +44,25 @@
     "has_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "overpowered:plasma_generator"
+        "recipe": "overpowered:matter_compressor"
       }
     },
-    "has_plasma_generator": {
+    "has_matter_compressor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:plasma_generator"
+            "item": "overpowered:matter_compressor"
           }
         ]
       }
     },
-    "has_plasma": {
+    "has_unimatter": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:plasma"
+            "item": "overpowered:unimatter"
           }
         ]
       }
@@ -70,18 +70,18 @@
   },
   "requirements": [
     [
-      "silver_plate",
-      "matter_energy_transformer",
-      "circuit",
-      "energized_power_core",
+      "titanium_plate",
+      "reinforced_container",
+      "circuit_tier_9",
+      "nullified_power_core",
       "has_recipe",
-      "has_plasma_generator",
-      "has_plasma"
+      "has_matter_compressor",
+      "has_unimatter"
     ]
   ],
   "rewards": {
     "recipes": [
-      "overpowered:plasma_generator"
+      "overpowered:matter_compressor"
     ]
   }
 }

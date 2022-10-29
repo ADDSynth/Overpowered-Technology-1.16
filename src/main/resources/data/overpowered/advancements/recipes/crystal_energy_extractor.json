@@ -21,12 +21,12 @@
         ]
       }
     },
-    "scanning_laser": {
+    "matter_energy_transformer": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:scanning_laser"
+            "item": "overpowered:matter_energy_transformer"
           }
         ]
       }
@@ -36,17 +36,7 @@
       "conditions": {
         "items": [
           {
-            "item": "addsynth_energy:circuit_tier_3"
-          }
-        ]
-      }
-    },
-    "ender_pearl": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:ender_pearls"
+            "item": "addsynth_energy:circuit_tier_5"
           }
         ]
       }
@@ -72,9 +62,8 @@
     [
       "energy_crystal",
       "aluminum_plate",
-      "scanning_laser",
+      "matter_energy_transformer",
       "circuit",
-      "ender_pearl",
       "has_recipe",
       "has_machine"
     ]

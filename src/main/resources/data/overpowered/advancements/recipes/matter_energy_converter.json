@@ -1,36 +1,6 @@
 {
-  "parent": "addsynth_energy:recipes/root",
+  "parent": "overpowered:recipes/root",
   "criteria": {
-    "energy_wire": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "addsynth_energy:energy_wire"
-          }
-        ]
-      }
-    },
-    "diamond": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:gems/diamond"
-          }
-        ]
-      }
-    },
-    "advanced_power_core": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "addsynth_energy:advanced_power_core"
-          }
-        ]
-      }
-    },
     "power_regulator": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -41,18 +11,38 @@
         ]
       }
     },
-    "has_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "addsynth_energy:universal_energy_interface"
-      }
-    },
-    "has_interface": {
+    "energy_crystal": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "addsynth_energy:universal_energy_interface"
+            "item": "overpowered:energy_crystal"
+          }
+        ]
+      }
+    },
+    "steel_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:plates/steel"
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "overpowered:matter_energy_converter"
+      }
+    },
+    "has_matter_energy_converter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "overpowered:matter_energy_converter"
           }
         ]
       }
@@ -60,17 +50,16 @@
   },
   "requirements": [
     [
-      "energy_wire",
-      "diamond",
-      "advanced_power_core",
       "power_regulator",
+      "energy_crystal",
+      "steel_plate",
       "has_recipe",
-      "has_interface"
+      "has_matter_energy_converter"
     ]
   ],
   "rewards": {
     "recipes": [
-      "addsynth_energy:universal_energy_interface"
+      "overpowered:matter_energy_converter"
     ]
   }
 }

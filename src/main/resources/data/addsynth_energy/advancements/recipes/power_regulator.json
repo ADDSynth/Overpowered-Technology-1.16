@@ -1,42 +1,42 @@
 {
-  "parent": "overpowered:recipes/root",
+  "parent": "addsynth_energy:recipes/root",
   "criteria": {
-    "silver_plate": {
+    "circuit_tier_1": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:plates/silver"
+            "item": "addsynth_energy:circuit_tier_1"
           }
         ]
       }
     },
-    "matter_energy_transformer": {
+    "steel_plate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:matter_energy_transformer"
+            "tag": "forge:plates/steel"
           }
         ]
       }
     },
-    "circuit": {
+    "power_core": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "addsynth_energy:circuit_tier_8"
+            "item": "addsynth_energy:power_core"
           }
         ]
       }
     },
-    "energized_power_core": {
+    "energy_wire": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:energized_power_core"
+            "item": "addsynth_energy:energy_wire"
           }
         ]
       }
@@ -44,25 +44,15 @@
     "has_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "overpowered:plasma_generator"
+        "recipe": "addsynth_energy:power_regulator"
       }
     },
-    "has_plasma_generator": {
+    "has_power_regulator": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:plasma_generator"
-          }
-        ]
-      }
-    },
-    "has_plasma": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "overpowered:plasma"
+            "item": "addsynth_energy:power_regulator"
           }
         ]
       }
@@ -70,18 +60,17 @@
   },
   "requirements": [
     [
-      "silver_plate",
-      "matter_energy_transformer",
-      "circuit",
-      "energized_power_core",
+      "circuit_tier_1",
+      "steel_plate",
+      "power_core",
+      "energy_wire",
       "has_recipe",
-      "has_plasma_generator",
-      "has_plasma"
+      "has_power_regulator"
     ]
   ],
   "rewards": {
     "recipes": [
-      "overpowered:plasma_generator"
+      "addsynth_energy:power_regulator"
     ]
   }
 }
