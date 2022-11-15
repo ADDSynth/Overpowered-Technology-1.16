@@ -13,14 +13,12 @@
   },
   "parent": "overpowered:overpowered/black_hole",
   "criteria": {
-    "void_crystal": {
+    "unimatter": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "overpowered:unimatter"
-            ]
+            "item": "overpowered:unimatter"
           }
         ]
       }
