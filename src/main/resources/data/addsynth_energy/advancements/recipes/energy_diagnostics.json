@@ -1,17 +1,7 @@
 {
   "parent": "addsynth_energy:recipes/root",
   "criteria": {
-    "paper": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "minecraft:paper"
-          }
-        ]
-      }
-    },
-    "iron_plate": {
+    "iron_plates": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -21,42 +11,42 @@
         ]
       }
     },
-    "green_dye": {
+    "energy_wire": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:dyes/green"
+            "item": "addsynth_energy:energy_wire"
           }
         ]
       }
     },
-    "redstone": {
+    "observer": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:dusts/redstone"
+            "item": "minecraft:observer"
           }
         ]
       }
     },
-    "quartz": {
+    "power_regulator": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:gems/quartz"
+            "item": "addsynth_energy:power_regulator"
           }
         ]
       }
     },
-    "copper": {
+    "circuit_tier_2": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/copper"
+            "item": "addsynth_energy:circuit_tier_2"
           }
         ]
       }
@@ -64,15 +54,15 @@
     "has_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "addsynth_energy:circuit_tier_1_crafting"
+        "recipe": "addsynth_energy:universal_energy_interface"
       }
     },
-    "has_green_circuit": {
+    "has_interface": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "addsynth_energy:circuit_tier_1"
+            "item": "addsynth_energy:universal_energy_interface"
           }
         ]
       }
@@ -80,20 +70,18 @@
   },
   "requirements": [
     [
-      "paper",
-      "iron_plate",
-      "green_dye",
-      "redstone",
-      "quartz",
-      "copper",
+      "iron_plates",
+      "energy_wire",
+      "observer",
+      "power_regulator",
+      "circuit_tier_2",
       "has_recipe",
-      "has_green_circuit"
+      "has_interface"
     ]
   ],
   "rewards": {
     "recipes": [
-      "addsynth_energy:circuit_tier_1_crafting",
-      "addsynth_energy:circuit_fabricator"
+      "addsynth_energy:universal_energy_interface"
     ]
   }
 }

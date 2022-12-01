@@ -11,12 +11,12 @@
         ]
       }
     },
-    "energy_crystal": {
+    "energized_power_core": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "overpowered:energy_crystal"
+            "item": "overpowered:energized_power_core"
           }
         ]
       }
@@ -27,6 +27,16 @@
         "items": [
           {
             "tag": "forge:plates/steel"
+          }
+        ]
+      }
+    },
+    "plasma": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "overpowered:plasma"
           }
         ]
       }
@@ -51,8 +61,9 @@
   "requirements": [
     [
       "power_regulator",
-      "energy_crystal",
+      "energized_power_core",
       "steel_plate",
+      "plasma",
       "has_recipe",
       "has_matter_energy_converter"
     ]

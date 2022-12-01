@@ -11,6 +11,16 @@
         ]
       }
     },
+    "blaze_powder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:blaze_powder"
+          }
+        ]
+      }
+    },
     "has_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
@@ -31,6 +41,7 @@
   "requirements": [
     [
       "plasma",
+      "blaze_powder",
       "has_recipe",
       "has_fusion_core"
     ]

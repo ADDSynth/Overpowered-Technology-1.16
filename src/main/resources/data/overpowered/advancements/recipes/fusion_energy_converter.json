@@ -21,6 +21,16 @@
         ]
       }
     },
+    "circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "addsynth_energy:circuit_tier_8"
+          }
+        ]
+      }
+    },
     "has_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
@@ -48,6 +58,7 @@
     [
       "titanium_plate",
       "nullified_power_core",
+      "circuit",
       "has_recipe",
       "has_alternate_recipe",
       "has_machine"
