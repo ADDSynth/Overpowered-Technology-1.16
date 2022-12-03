@@ -27,7 +27,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 public final class MatterCompressorBlock extends MachineBlock {
 
   public MatterCompressorBlock(){
-    super(MaterialColor.WOOL);
+    super(MaterialColor.COLOR_BLACK);
     RegistryUtil.register_block(this, Names.MATTER_COMPRESSOR, CreativeTabs.creative_tab);
   }
 

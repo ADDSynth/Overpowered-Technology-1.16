@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public final class EnergyDiagnosticsBlock extends Block {
 
   public EnergyDiagnosticsBlock(){
-    super(Properties.of(Material.METAL, MaterialColor.WOOL));
+    super(Properties.of(Material.METAL, MaterialColor.WOOL).strength(1.5f, 6.0f));
     RegistryUtil.register_block(this, Names.ENERGY_DIAGNOSTICS_BLOCK, ADDSynthEnergy.creative_tab);
   }
 
