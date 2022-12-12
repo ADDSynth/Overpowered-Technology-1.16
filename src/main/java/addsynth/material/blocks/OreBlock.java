@@ -1,5 +1,6 @@
 package addsynth.material.blocks;
 
+import javax.annotation.Nullable;
 import addsynth.core.game.RegistryUtil;
 import addsynth.core.util.math.random.RandomUtil;
 import addsynth.material.ADDSynthMaterials;
@@ -34,7 +35,7 @@ public class OreBlock extends Block {
    * @param max_experience
    */
   public OreBlock(final String name, final MiningStrength strength, int min_experience, int max_experience){
-    super(Block.Properties.of(Material.STONE).strength(3.0f, 6.0f).harvestTool(ToolType.PICKAXE).harvestLevel(strength.ordinal()));
+    super(Block.Properties.of(Material.STONE).strength(3.0f, 6.0f).harvestTool(ToolType.PICKAXE).harvestLevel(strength.ordinal()).requiresCorrectToolForDrops());
     // https://minecraft.gamepedia.com/Breaking#Blocks_by_hardness
     RegistryUtil.register_block(this, new ResourceLocation(ADDSynthMaterials.MOD_ID, name), ADDSynthMaterials.creative_tab);
     this.min_experience = min_experience;
@@ -44,6 +45,12 @@ public class OreBlock extends Block {
   @Override
   public final int getExpDrop(BlockState state, IWorldReader world, BlockPos pos, int fortune, int silktouch){
     return silktouch == 0 ? RandomUtil.RandomRange(min_experience, max_experience) : 0;
+  }
+
+  @Override
+  @Nullable
+  public final ToolType getHarvestTool(final BlockState state){
+    return ToolType.PICKAXE;
   }
 
 }
