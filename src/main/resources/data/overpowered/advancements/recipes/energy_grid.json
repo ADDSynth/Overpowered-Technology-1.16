@@ -1,22 +1,22 @@
 {
   "parent": "overpowered:recipes/root",
   "criteria": {
-    "beam_emitter": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "overpowered:beam_emitter"
-          }
-        ]
-      }
-    },
     "steel_plate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "tag": "forge:plates/steel"
+          }
+        ]
+      }
+    },
+    "plasma": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "overpowered:plasma"
           }
         ]
       }
@@ -40,8 +40,8 @@
   },
   "requirements": [
     [
-      "beam_emitter",
       "steel_plate",
+      "plasma",
       "has_recipe",
       "has_energy_grid"
     ]
