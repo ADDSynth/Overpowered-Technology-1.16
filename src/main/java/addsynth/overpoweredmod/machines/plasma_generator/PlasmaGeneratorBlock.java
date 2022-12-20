@@ -42,7 +42,7 @@ public final class PlasmaGeneratorBlock extends MachineBlock {
 
   @Override
   public final void appendHoverText(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn){
-    tooltip.add(new TranslationTextComponent("gui.addsynth_energy.tooltip.class_4_machine"));
+    tooltip.add(new TranslationTextComponent("gui.addsynth_energy.tooltip.class_3_machine"));
   }
 
   @Override
